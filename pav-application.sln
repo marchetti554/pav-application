@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.572
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "pav-application", "pav-application\pav-application.csproj", "{CA473078-55AC-4864-86A3-D6EC35503C85}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CA473078-55AC-4864-86A3-D6EC35503C85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA473078-55AC-4864-86A3-D6EC35503C85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA473078-55AC-4864-86A3-D6EC35503C85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA473078-55AC-4864-86A3-D6EC35503C85}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1C7ECEB0-A886-492F-A5FD-E877389F3373}
+	EndGlobalSection
+EndGlobal
