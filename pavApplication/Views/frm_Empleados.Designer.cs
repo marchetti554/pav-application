@@ -1,4 +1,7 @@
-﻿namespace pavApplication.Views
+﻿using System;
+using System.Windows.Forms;
+
+namespace pavApplication.Views
 {
     partial class frm_Empleados
     {
@@ -30,6 +33,12 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dgv_empleados = new System.Windows.Forms.DataGridView();
+            this.legajo_empleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.domicilio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.empleadosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this._pav_dbDataSet = new pavApplication._pav_dbDataSet();
             this.pavdbDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -51,16 +60,11 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.legajo_empleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.domicilio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btn_modificar = new System.Windows.Forms.Button();
+            this.btn_eliminar = new System.Windows.Forms.Button();
             this.empleadosBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.empleadosBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.btn_nuevo = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_empleados)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.empleadosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._pav_dbDataSet)).BeginInit();
@@ -82,12 +86,50 @@
             this.telefono,
             this.domicilio});
             this.dgv_empleados.Location = new System.Drawing.Point(284, 84);
+            this.dgv_empleados.MultiSelect = false;
             this.dgv_empleados.Name = "dgv_empleados";
             this.dgv_empleados.ReadOnly = true;
             this.dgv_empleados.RowTemplate.Height = 24;
-            this.dgv_empleados.Size = new System.Drawing.Size(749, 339);
+            this.dgv_empleados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgv_empleados.Size = new System.Drawing.Size(749, 355);
             this.dgv_empleados.TabIndex = 18;
-            this.dgv_empleados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dgv_empleados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_empleados_CellContentClick);
+            // 
+            // legajo_empleado
+            // 
+            this.legajo_empleado.HeaderText = "Legajo";
+            this.legajo_empleado.Name = "legajo_empleado";
+            this.legajo_empleado.ReadOnly = true;
+            // 
+            // nombre
+            // 
+            this.nombre.HeaderText = "Nombre";
+            this.nombre.Name = "nombre";
+            this.nombre.ReadOnly = true;
+            // 
+            // apellido
+            // 
+            this.apellido.HeaderText = "Apellido";
+            this.apellido.Name = "apellido";
+            this.apellido.ReadOnly = true;
+            // 
+            // email
+            // 
+            this.email.HeaderText = "Email";
+            this.email.Name = "email";
+            this.email.ReadOnly = true;
+            // 
+            // telefono
+            // 
+            this.telefono.HeaderText = "Telefono";
+            this.telefono.Name = "telefono";
+            this.telefono.ReadOnly = true;
+            // 
+            // domicilio
+            // 
+            this.domicilio.HeaderText = "Domicilio";
+            this.domicilio.Name = "domicilio";
+            this.domicilio.ReadOnly = true;
             // 
             // empleadosBindingSource
             // 
@@ -187,7 +229,7 @@
             // 
             // btn_agregar
             // 
-            this.btn_agregar.Location = new System.Drawing.Point(12, 286);
+            this.btn_agregar.Location = new System.Drawing.Point(12, 325);
             this.btn_agregar.Name = "btn_agregar";
             this.btn_agregar.Size = new System.Drawing.Size(250, 34);
             this.btn_agregar.TabIndex = 5;
@@ -249,59 +291,25 @@
             this.label7.TabIndex = 22;
             this.label7.Text = "Valor:";
             // 
-            // button1
+            // btn_modificar
             // 
-            this.button1.Location = new System.Drawing.Point(12, 339);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(250, 34);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Modificar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btn_modificar.Location = new System.Drawing.Point(12, 365);
+            this.btn_modificar.Name = "btn_modificar";
+            this.btn_modificar.Size = new System.Drawing.Size(250, 34);
+            this.btn_modificar.TabIndex = 6;
+            this.btn_modificar.Text = "Modificar";
+            this.btn_modificar.UseVisualStyleBackColor = true;
+            this.btn_modificar.Click += new System.EventHandler(this.btn_modificar_Click);
             // 
-            // button2
+            // btn_eliminar
             // 
-            this.button2.Location = new System.Drawing.Point(12, 389);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(250, 34);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "Eliminar";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // legajo_empleado
-            // 
-            this.legajo_empleado.HeaderText = "Legajo";
-            this.legajo_empleado.Name = "legajo_empleado";
-            this.legajo_empleado.ReadOnly = true;
-            // 
-            // nombre
-            // 
-            this.nombre.HeaderText = "Nombre";
-            this.nombre.Name = "nombre";
-            this.nombre.ReadOnly = true;
-            // 
-            // apellido
-            // 
-            this.apellido.HeaderText = "Apellido";
-            this.apellido.Name = "apellido";
-            this.apellido.ReadOnly = true;
-            // 
-            // email
-            // 
-            this.email.HeaderText = "Email";
-            this.email.Name = "email";
-            this.email.ReadOnly = true;
-            // 
-            // telefono
-            // 
-            this.telefono.HeaderText = "Telefono";
-            this.telefono.Name = "telefono";
-            this.telefono.ReadOnly = true;
-            // 
-            // domicilio
-            // 
-            this.domicilio.HeaderText = "Domicilio";
-            this.domicilio.Name = "domicilio";
-            this.domicilio.ReadOnly = true;
+            this.btn_eliminar.Location = new System.Drawing.Point(12, 405);
+            this.btn_eliminar.Name = "btn_eliminar";
+            this.btn_eliminar.Size = new System.Drawing.Size(250, 34);
+            this.btn_eliminar.TabIndex = 7;
+            this.btn_eliminar.Text = "Eliminar";
+            this.btn_eliminar.UseVisualStyleBackColor = true;
+            this.btn_eliminar.Click += new System.EventHandler(this.btn_eliminar_Click);
             // 
             // empleadosBindingSource1
             // 
@@ -313,13 +321,24 @@
             this.empleadosBindingSource2.DataMember = "empleados";
             this.empleadosBindingSource2.DataSource = this.pavdbDataSetBindingSource;
             // 
+            // btn_nuevo
+            // 
+            this.btn_nuevo.Location = new System.Drawing.Point(12, 285);
+            this.btn_nuevo.Name = "btn_nuevo";
+            this.btn_nuevo.Size = new System.Drawing.Size(250, 34);
+            this.btn_nuevo.TabIndex = 23;
+            this.btn_nuevo.Text = "Nuevo";
+            this.btn_nuevo.UseVisualStyleBackColor = true;
+            this.btn_nuevo.Click += new System.EventHandler(this.btn_nuevo_Click);
+            // 
             // frm_Empleados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1045, 435);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(1045, 451);
+            this.Controls.Add(this.btn_nuevo);
+            this.Controls.Add(this.btn_eliminar);
+            this.Controls.Add(this.btn_modificar);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -378,8 +397,8 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btn_modificar;
+        private System.Windows.Forms.Button btn_eliminar;
         private System.Windows.Forms.DataGridViewTextBoxColumn legajo_empleado;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn apellido;
@@ -388,5 +407,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn domicilio;
         private System.Windows.Forms.BindingSource empleadosBindingSource1;
         private System.Windows.Forms.BindingSource empleadosBindingSource2;
+        private System.Windows.Forms.Button btn_nuevo;
     }
 }

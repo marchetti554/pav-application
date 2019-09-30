@@ -52,12 +52,12 @@ namespace pavApplication.Utils
             conexion = new SqlConnection();
             comando = new SqlCommand();
         }
-        //
-        //Parte transaccion
+
         enum TransactionStatus
         {
             exito, fracaso, iniciada, desactivada
         }
+
         private TransactionStatus estadoTransaccion = TransactionStatus.desactivada;
         private SqlTransaction transaccion = null;
         public bool resultadoDeTrasaccion = true;
@@ -73,6 +73,7 @@ namespace pavApplication.Utils
             }
 
         }
+
         private void desconectarTransacion()
         {
             if (estadoTransaccion == TransactionStatus.exito)
@@ -86,18 +87,20 @@ namespace pavApplication.Utils
                 resultadoDeTrasaccion = false;
             }
         }
+
         public void startTransaction()
         {
             estadoTransaccion = TransactionStatus.iniciada;
         }
+
         public void endTransaction()
         {
             desconectarTransacion();
             estadoTransaccion = TransactionStatus.desactivada;
             desconectar();
         }
-        //
-        //metodos
+
+    
         private void conectar()
         {
             if (estadoTransaccion == TransactionStatus.desactivada)
@@ -128,7 +131,6 @@ namespace pavApplication.Utils
             {
                 conexion.Close();
             }
-
         }
 
         public DataTable consultarTabla(string nombreTabla)
@@ -140,6 +142,7 @@ namespace pavApplication.Utils
             desconectar();
             return tabla;
         }
+
         public DataTable consultarSQL(string consultaSQL)
         {
             DataTable tabla = new DataTable();
@@ -149,7 +152,7 @@ namespace pavApplication.Utils
             desconectar();
             return tabla;
         }
-        //
+
         public void actualizarBD(string sql)
         {
             try
