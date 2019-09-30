@@ -19,8 +19,7 @@ namespace pavApplication.Views
 
         private void frm_Dashboard_Load(object sender, EventArgs e)
         {
-            // TODO: esta línea de código carga datos en la tabla '_pav_dbDataSet.orden_trabajo' Puede moverla o quitarla según sea necesario.
-            this.orden_trabajoTableAdapter.Fill(this._pav_dbDataSet.orden_trabajo);
+            
 
         }
 
