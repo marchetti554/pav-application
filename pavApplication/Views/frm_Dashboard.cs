@@ -49,5 +49,10 @@ namespace pavApplication.Views
             Form clientesForm = new frm_Clientes();
             clientesForm.ShowDialog();
         }
+
+        private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

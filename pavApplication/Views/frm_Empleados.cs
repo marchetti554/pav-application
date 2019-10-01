@@ -61,7 +61,7 @@ namespace pavApplication.Views
 
                 bdHelper.actualizarBD(query);
                 MessageBox.Show("Empleado agregado/actualizado correctamente.", "Empleado Guardado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                dgv_empleados.ClearSelection();
                 clearFields();
             }
             actualizarGrilla();
@@ -75,6 +75,7 @@ namespace pavApplication.Views
                     + Int32.Parse(dgv_empleados.SelectedRows[0].Cells["legajo_empleado"].Value.ToString()) + ";";
                 bdHelper.actualizarBD(query);
                 actualizarGrilla();
+                dgv_empleados.ClearSelection();
             }
         }
 
@@ -113,12 +114,15 @@ namespace pavApplication.Views
             txt_email.Text = email;
             txt_telefono.Text = telefono;
             txt_domicilio.Text = domicilio;
+
+            dgv_empleados.ClearSelection();
         }
 
         private void btn_nuevo_Click(object sender, EventArgs e)
         {
             estaActualizando = false;
             clearFields();
+            dgv_empleados.ClearSelection();
         }
 
         private void clearFields()
@@ -138,6 +142,24 @@ namespace pavApplication.Views
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_salir_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("¿Está seguro que desea cerrar el menú de Empleados?", "¡Atención!", MessageBoxButtons.YesNoCancel) == DialogResult.Yes)
+            {
+                this.Close();
+            }
         }
     }
 }

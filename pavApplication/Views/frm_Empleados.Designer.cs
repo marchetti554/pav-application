@@ -65,6 +65,7 @@ namespace pavApplication.Views
             this.empleadosBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.empleadosBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.btn_nuevo = new System.Windows.Forms.Button();
+            this.btn_salir = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_empleados)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.empleadosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._pav_dbDataSet)).BeginInit();
@@ -77,6 +78,7 @@ namespace pavApplication.Views
             // 
             this.dgv_empleados.AllowUserToAddRows = false;
             this.dgv_empleados.AllowUserToDeleteRows = false;
+            this.dgv_empleados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_empleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_empleados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.legajo_empleado,
@@ -91,7 +93,7 @@ namespace pavApplication.Views
             this.dgv_empleados.ReadOnly = true;
             this.dgv_empleados.RowTemplate.Height = 24;
             this.dgv_empleados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_empleados.Size = new System.Drawing.Size(749, 355);
+            this.dgv_empleados.Size = new System.Drawing.Size(976, 355);
             this.dgv_empleados.TabIndex = 18;
             this.dgv_empleados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_empleados_CellContentClick);
             // 
@@ -152,10 +154,10 @@ namespace pavApplication.Views
             // 
             // btn_Buscar
             // 
-            this.btn_Buscar.Location = new System.Drawing.Point(908, 34);
+            this.btn_Buscar.Location = new System.Drawing.Point(1080, 35);
             this.btn_Buscar.Name = "btn_Buscar";
             this.btn_Buscar.Size = new System.Drawing.Size(125, 42);
-            this.btn_Buscar.TabIndex = 10;
+            this.btn_Buscar.TabIndex = 11;
             this.btn_Buscar.Text = "Buscar";
             this.btn_Buscar.UseVisualStyleBackColor = true;
             // 
@@ -168,28 +170,28 @@ namespace pavApplication.Views
             // 
             // txt_telefono
             // 
-            this.txt_telefono.Location = new System.Drawing.Point(12, 197);
+            this.txt_telefono.Location = new System.Drawing.Point(12, 198);
             this.txt_telefono.Name = "txt_telefono";
             this.txt_telefono.Size = new System.Drawing.Size(250, 22);
             this.txt_telefono.TabIndex = 3;
             // 
             // txt_domicilio
             // 
-            this.txt_domicilio.Location = new System.Drawing.Point(12, 247);
+            this.txt_domicilio.Location = new System.Drawing.Point(12, 256);
             this.txt_domicilio.Name = "txt_domicilio";
             this.txt_domicilio.Size = new System.Drawing.Size(250, 22);
             this.txt_domicilio.TabIndex = 4;
             // 
             // txt_apellido
             // 
-            this.txt_apellido.Location = new System.Drawing.Point(12, 103);
+            this.txt_apellido.Location = new System.Drawing.Point(12, 97);
             this.txt_apellido.Name = "txt_apellido";
             this.txt_apellido.Size = new System.Drawing.Size(250, 22);
             this.txt_apellido.TabIndex = 1;
             // 
             // txt_nombre
             // 
-            this.txt_nombre.Location = new System.Drawing.Point(12, 54);
+            this.txt_nombre.Location = new System.Drawing.Point(12, 44);
             this.txt_nombre.Name = "txt_nombre";
             this.txt_nombre.Size = new System.Drawing.Size(250, 22);
             this.txt_nombre.TabIndex = 0;
@@ -199,41 +201,43 @@ namespace pavApplication.Views
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1045, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1272, 24);
             this.menuStrip1.TabIndex = 11;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
             // textBox7
             // 
-            this.textBox7.Location = new System.Drawing.Point(483, 54);
+            this.textBox7.Location = new System.Drawing.Point(549, 44);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(407, 22);
-            this.textBox7.TabIndex = 9;
+            this.textBox7.TabIndex = 10;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(281, 34);
+            this.label1.Location = new System.Drawing.Point(281, 22);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(81, 17);
             this.label1.TabIndex = 13;
             this.label1.Text = "Buscar por:";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(284, 54);
+            this.comboBox1.Location = new System.Drawing.Point(284, 44);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(172, 24);
-            this.comboBox1.TabIndex = 8;
+            this.comboBox1.TabIndex = 9;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // btn_agregar
             // 
-            this.btn_agregar.Location = new System.Drawing.Point(12, 325);
+            this.btn_agregar.Location = new System.Drawing.Point(12, 346);
             this.btn_agregar.Name = "btn_agregar";
-            this.btn_agregar.Size = new System.Drawing.Size(250, 34);
-            this.btn_agregar.TabIndex = 5;
+            this.btn_agregar.Size = new System.Drawing.Size(250, 45);
+            this.btn_agregar.TabIndex = 6;
             this.btn_agregar.Text = "Agregar";
             this.btn_agregar.UseVisualStyleBackColor = true;
             this.btn_agregar.Click += new System.EventHandler(this.btn_agregar_Click);
@@ -241,7 +245,7 @@ namespace pavApplication.Views
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(9, 34);
+            this.label2.Location = new System.Drawing.Point(9, 24);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(62, 17);
             this.label2.TabIndex = 17;
@@ -250,7 +254,7 @@ namespace pavApplication.Views
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(9, 83);
+            this.label3.Location = new System.Drawing.Point(9, 77);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(62, 17);
             this.label3.TabIndex = 18;
@@ -259,7 +263,7 @@ namespace pavApplication.Views
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 128);
+            this.label4.Location = new System.Drawing.Point(9, 128);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(46, 17);
             this.label4.TabIndex = 19;
@@ -268,7 +272,7 @@ namespace pavApplication.Views
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 177);
+            this.label5.Location = new System.Drawing.Point(9, 178);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(68, 17);
             this.label5.TabIndex = 20;
@@ -277,7 +281,7 @@ namespace pavApplication.Views
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(12, 227);
+            this.label6.Location = new System.Drawing.Point(12, 236);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(68, 17);
             this.label6.TabIndex = 21;
@@ -286,7 +290,7 @@ namespace pavApplication.Views
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(480, 34);
+            this.label7.Location = new System.Drawing.Point(546, 22);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(45, 17);
             this.label7.TabIndex = 22;
@@ -294,20 +298,20 @@ namespace pavApplication.Views
             // 
             // btn_modificar
             // 
-            this.btn_modificar.Location = new System.Drawing.Point(12, 365);
+            this.btn_modificar.Location = new System.Drawing.Point(12, 397);
             this.btn_modificar.Name = "btn_modificar";
-            this.btn_modificar.Size = new System.Drawing.Size(250, 34);
-            this.btn_modificar.TabIndex = 6;
+            this.btn_modificar.Size = new System.Drawing.Size(250, 45);
+            this.btn_modificar.TabIndex = 7;
             this.btn_modificar.Text = "Modificar";
             this.btn_modificar.UseVisualStyleBackColor = true;
             this.btn_modificar.Click += new System.EventHandler(this.btn_modificar_Click);
             // 
             // btn_eliminar
             // 
-            this.btn_eliminar.Location = new System.Drawing.Point(12, 405);
+            this.btn_eliminar.Location = new System.Drawing.Point(12, 448);
             this.btn_eliminar.Name = "btn_eliminar";
-            this.btn_eliminar.Size = new System.Drawing.Size(250, 34);
-            this.btn_eliminar.TabIndex = 7;
+            this.btn_eliminar.Size = new System.Drawing.Size(250, 45);
+            this.btn_eliminar.TabIndex = 8;
             this.btn_eliminar.Text = "Eliminar";
             this.btn_eliminar.UseVisualStyleBackColor = true;
             this.btn_eliminar.Click += new System.EventHandler(this.btn_eliminar_Click);
@@ -324,19 +328,30 @@ namespace pavApplication.Views
             // 
             // btn_nuevo
             // 
-            this.btn_nuevo.Location = new System.Drawing.Point(12, 285);
+            this.btn_nuevo.Location = new System.Drawing.Point(12, 293);
             this.btn_nuevo.Name = "btn_nuevo";
-            this.btn_nuevo.Size = new System.Drawing.Size(250, 34);
-            this.btn_nuevo.TabIndex = 23;
+            this.btn_nuevo.Size = new System.Drawing.Size(250, 47);
+            this.btn_nuevo.TabIndex = 5;
             this.btn_nuevo.Text = "Nuevo";
             this.btn_nuevo.UseVisualStyleBackColor = true;
             this.btn_nuevo.Click += new System.EventHandler(this.btn_nuevo_Click);
+            // 
+            // btn_salir
+            // 
+            this.btn_salir.Location = new System.Drawing.Point(284, 445);
+            this.btn_salir.Name = "btn_salir";
+            this.btn_salir.Size = new System.Drawing.Size(976, 45);
+            this.btn_salir.TabIndex = 23;
+            this.btn_salir.Text = "Salir";
+            this.btn_salir.UseVisualStyleBackColor = true;
+            this.btn_salir.Click += new System.EventHandler(this.btn_salir_Click);
             // 
             // frm_Empleados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1045, 451);
+            this.ClientSize = new System.Drawing.Size(1272, 502);
+            this.Controls.Add(this.btn_salir);
             this.Controls.Add(this.btn_nuevo);
             this.Controls.Add(this.btn_eliminar);
             this.Controls.Add(this.btn_modificar);
@@ -409,5 +424,6 @@ namespace pavApplication.Views
         private System.Windows.Forms.BindingSource empleadosBindingSource1;
         private System.Windows.Forms.BindingSource empleadosBindingSource2;
         private System.Windows.Forms.Button btn_nuevo;
+        private Button btn_salir;
     }
 }
