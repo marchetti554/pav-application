@@ -32,5 +32,22 @@ namespace pavApplication.Views
         {
 
         }
+
+        private void consultarToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Form empleadosForm = new frm_Empleados();
+            empleadosForm.ShowDialog();
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void empresasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form clientesForm = new frm_Clientes();
+            clientesForm.ShowDialog();
+        }
     }
 }

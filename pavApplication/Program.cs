@@ -17,7 +17,7 @@ namespace pavApplication
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frm_Empleados());
+            Application.Run(new frm_Dashboard());
         }
     }
 }

@@ -69,9 +69,13 @@ namespace pavApplication.Views
 
         private void btn_eliminar_Click(object sender, EventArgs e)
         {
-            String query = "update Empleados SET estaEliminado = 1";
-            bdHelper.actualizarBD(query);
-            actualizarGrilla();
+            if(MessageBox.Show("¿Está seguro que desea eliminar este Empleado?", "¡Atención!", MessageBoxButtons.YesNoCancel) == DialogResult.Yes)
+            {
+                String query = "update Empleados SET estaEliminado = 1 WHERE legajo_empleado = "
+                    + Int32.Parse(dgv_empleados.SelectedRows[0].Cells["legajo_empleado"].Value.ToString()) + ";";
+                bdHelper.actualizarBD(query);
+                actualizarGrilla();
+            }
         }
 
         private void actualizarGrilla()
@@ -131,5 +135,9 @@ namespace pavApplication.Views
 
         }
 
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
     }
 }

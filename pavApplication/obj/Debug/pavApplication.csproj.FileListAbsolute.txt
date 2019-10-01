@@ -20,3 +20,4 @@ D:\Projects\pav-application\pavApplication\obj\Debug\pavApplication.csproj.Gener
 D:\Projects\pav-application\pavApplication\obj\Debug\pavApplication.csproj.CoreCompileInputs.cache
 D:\Projects\pav-application\pavApplication\obj\Debug\pavApplication.exe
 D:\Projects\pav-application\pavApplication\obj\Debug\pavApplication.pdb
+D:\Projects\pav-application\pavApplication\obj\Debug\pavApplication.Views.frm_Clientes.resources
