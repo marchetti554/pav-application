@@ -164,6 +164,7 @@ namespace pavApplication.Views
             // txt_email
             // 
             this.txt_email.Location = new System.Drawing.Point(12, 148);
+            this.txt_email.MaxLength = 40;
             this.txt_email.Name = "txt_email";
             this.txt_email.Size = new System.Drawing.Size(250, 22);
             this.txt_email.TabIndex = 2;
@@ -171,6 +172,7 @@ namespace pavApplication.Views
             // txt_telefono
             // 
             this.txt_telefono.Location = new System.Drawing.Point(12, 198);
+            this.txt_telefono.MaxLength = 40;
             this.txt_telefono.Name = "txt_telefono";
             this.txt_telefono.Size = new System.Drawing.Size(250, 22);
             this.txt_telefono.TabIndex = 3;
@@ -178,6 +180,7 @@ namespace pavApplication.Views
             // txt_domicilio
             // 
             this.txt_domicilio.Location = new System.Drawing.Point(12, 256);
+            this.txt_domicilio.MaxLength = 40;
             this.txt_domicilio.Name = "txt_domicilio";
             this.txt_domicilio.Size = new System.Drawing.Size(250, 22);
             this.txt_domicilio.TabIndex = 4;
@@ -185,6 +188,7 @@ namespace pavApplication.Views
             // txt_apellido
             // 
             this.txt_apellido.Location = new System.Drawing.Point(12, 97);
+            this.txt_apellido.MaxLength = 40;
             this.txt_apellido.Name = "txt_apellido";
             this.txt_apellido.Size = new System.Drawing.Size(250, 22);
             this.txt_apellido.TabIndex = 1;
@@ -192,6 +196,7 @@ namespace pavApplication.Views
             // txt_nombre
             // 
             this.txt_nombre.Location = new System.Drawing.Point(12, 44);
+            this.txt_nombre.MaxLength = 40;
             this.txt_nombre.Name = "txt_nombre";
             this.txt_nombre.Size = new System.Drawing.Size(250, 22);
             this.txt_nombre.TabIndex = 0;
@@ -332,7 +337,7 @@ namespace pavApplication.Views
             this.btn_nuevo.Name = "btn_nuevo";
             this.btn_nuevo.Size = new System.Drawing.Size(250, 47);
             this.btn_nuevo.TabIndex = 5;
-            this.btn_nuevo.Text = "Nuevo";
+            this.btn_nuevo.Text = "Limpiar";
             this.btn_nuevo.UseVisualStyleBackColor = true;
             this.btn_nuevo.Click += new System.EventHandler(this.btn_nuevo_Click);
             // 

@@ -54,5 +54,42 @@ namespace pavApplication.Views
         {
 
         }
+
+        private void cerrarSesiónToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_controlar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbl_ot_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Form empleadosForm = new frm_Empleados();
+            empleadosForm.ShowDialog();
+        }
+
+        private void btn_clientes_responsables_Click(object sender, EventArgs e)
+        {
+            Form clientesForm = new frm_Clientes();
+            clientesForm.ShowDialog();
+        }
     }
 }

@@ -278,13 +278,14 @@ namespace pavApplication.Views
             this.btn_nuevo_cliente.Name = "btn_nuevo_cliente";
             this.btn_nuevo_cliente.Size = new System.Drawing.Size(248, 33);
             this.btn_nuevo_cliente.TabIndex = 3;
-            this.btn_nuevo_cliente.Text = "Nuevo";
+            this.btn_nuevo_cliente.Text = "Limpiar";
             this.btn_nuevo_cliente.UseVisualStyleBackColor = true;
             this.btn_nuevo_cliente.Click += new System.EventHandler(this.btn_nuevo_cliente_Click);
             // 
             // txt_cliente_email
             // 
             this.txt_cliente_email.Location = new System.Drawing.Point(15, 126);
+            this.txt_cliente_email.MaxLength = 40;
             this.txt_cliente_email.Name = "txt_cliente_email";
             this.txt_cliente_email.Size = new System.Drawing.Size(248, 22);
             this.txt_cliente_email.TabIndex = 2;
@@ -292,6 +293,7 @@ namespace pavApplication.Views
             // txt_cliente_telefono
             // 
             this.txt_cliente_telefono.Location = new System.Drawing.Point(15, 75);
+            this.txt_cliente_telefono.MaxLength = 40;
             this.txt_cliente_telefono.Name = "txt_cliente_telefono";
             this.txt_cliente_telefono.Size = new System.Drawing.Size(248, 22);
             this.txt_cliente_telefono.TabIndex = 1;
@@ -299,6 +301,7 @@ namespace pavApplication.Views
             // txt_razon_social
             // 
             this.txt_razon_social.Location = new System.Drawing.Point(15, 30);
+            this.txt_razon_social.MaxLength = 30;
             this.txt_razon_social.Name = "txt_razon_social";
             this.txt_razon_social.Size = new System.Drawing.Size(248, 22);
             this.txt_razon_social.TabIndex = 0;

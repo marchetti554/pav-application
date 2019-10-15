@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -101,21 +102,24 @@ namespace pavApplication.Views
         private void btn_modificar_Click(object sender, EventArgs e)
         {
             estaActualizando = true;
+            if(dgv_empleados.SelectedRows.Count > 0)
+            {
+                string legajo = dgv_empleados.SelectedRows[0].Cells["legajo_empleado"].Value.ToString();
+                string nombre = dgv_empleados.SelectedRows[0].Cells["nombre"].Value.ToString();
+                string apellido = dgv_empleados.SelectedRows[0].Cells["apellido"].Value.ToString();
+                string email = dgv_empleados.SelectedRows[0].Cells["email"].Value.ToString();
+                string telefono = dgv_empleados.SelectedRows[0].Cells["telefono"].Value.ToString();
+                string domicilio = dgv_empleados.SelectedRows[0].Cells["domicilio"].Value.ToString();
 
-            string legajo = dgv_empleados.SelectedRows[0].Cells["legajo_empleado"].Value.ToString();
-            string nombre = dgv_empleados.SelectedRows[0].Cells["nombre"].Value.ToString();
-            string apellido = dgv_empleados.SelectedRows[0].Cells["apellido"].Value.ToString();
-            string email = dgv_empleados.SelectedRows[0].Cells["email"].Value.ToString();
-            string telefono = dgv_empleados.SelectedRows[0].Cells["telefono"].Value.ToString();
-            string domicilio = dgv_empleados.SelectedRows[0].Cells["domicilio"].Value.ToString();
-
-            txt_nombre.Text = nombre;
-            txt_apellido.Text = apellido;
-            txt_email.Text = email;
-            txt_telefono.Text = telefono;
-            txt_domicilio.Text = domicilio;
-
-            dgv_empleados.ClearSelection();
+                txt_nombre.Text = nombre;
+                txt_apellido.Text = apellido;
+                txt_email.Text = email;
+                txt_telefono.Text = telefono;
+                txt_domicilio.Text = domicilio;
+            } else
+            {
+                
+            }
         }
 
         private void btn_nuevo_Click(object sender, EventArgs e)

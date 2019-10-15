@@ -1,4 +1,5 @@
 ﻿using pavApplication.Views;
+using pavApplication.Vistas;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,7 @@ namespace pavApplication
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frm_Dashboard());
+            Application.Run(new frm_Login());
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -37,6 +38,22 @@ namespace pavApplication.Utils
         {
             set { cadenaConexion = value; }
             get { return cadenaConexion; }
+        }
+
+        /**
+         * Valida que el email ingresado sea correcto.
+         * 
+         */
+        public bool EsMailValido(string emailPorValidar)
+        {
+            try
+            {
+                MailAddress mailPorValidar = new MailAddress(emailPorValidar);
+            } catch(Exception e)
+            {
+                return false;
+            }
+            return true;
         }
 
         public BDHelper()
