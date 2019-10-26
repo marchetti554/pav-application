@@ -129,7 +129,6 @@
             this.Name = "frm_Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Methfarbi";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frm_Login_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

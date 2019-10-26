@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Datos\BDHelper.cs" />
+    <Compile Include="Datos\Constants.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Vistas\frm_Clientes.cs">
@@ -53,6 +54,12 @@
     </Compile>
     <Compile Include="Vistas\frm_Clientes.Designer.cs">
       <DependentUpon>frm_Clientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\frm_Controlar_OT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\frm_Controlar_OT.Designer.cs">
+      <DependentUpon>frm_Controlar_OT.cs</DependentUpon>
     </Compile>
     <Compile Include="Vistas\frm_Dashboard.cs">
       <SubType>Form</SubType>
@@ -72,10 +79,21 @@
     <Compile Include="Vistas\frm_Login.Designer.cs">
       <DependentUpon>frm_Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vistas\frm_Nueva_OT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\frm_Nueva_OT.Designer.cs">
+      <DependentUpon>frm_Nueva_OT.cs</DependentUpon>
+    </Compile>
     <Compile Include="_pav_dbDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>_pav_dbDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="_pav_dbDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_pav_dbDataSet1.xsd</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -89,6 +107,9 @@
     <EmbeddedResource Include="Vistas\frm_Clientes.resx">
       <DependentUpon>frm_Clientes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\frm_Controlar_OT.resx">
+      <DependentUpon>frm_Controlar_OT.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Vistas\frm_Dashboard.resx">
       <DependentUpon>frm_Dashboard.cs</DependentUpon>
     </EmbeddedResource>
@@ -97,6 +118,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\frm_Login.resx">
       <DependentUpon>frm_Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\frm_Nueva_OT.resx">
+      <DependentUpon>frm_Nueva_OT.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -117,6 +141,17 @@
     </None>
     <None Include="_pav_dbDataSet.xss">
       <DependentUpon>_pav_dbDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="_pav_dbDataSet1.xsc">
+      <DependentUpon>_pav_dbDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="_pav_dbDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>_pav_dbDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="_pav_dbDataSet1.xss">
+      <DependentUpon>_pav_dbDataSet1.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

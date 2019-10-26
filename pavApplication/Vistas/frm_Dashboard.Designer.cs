@@ -50,7 +50,7 @@
             this.btn_eliminar = new System.Windows.Forms.Button();
             this.btn_controlar = new System.Windows.Forms.Button();
             this.lbl_ot = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_nueva_ot = new System.Windows.Forms.Button();
             this._pav_dbDataSet = new pavApplication._pav_dbDataSet();
             this.pavdbDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ordentrabajoBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -66,6 +66,11 @@
             this.modificarPerfilToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lbl_user_logged = new System.Windows.Forms.Label();
             this.lbl_nmb_usuario = new System.Windows.Forms.Label();
+            this.id_orden_trabajo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fecha_estimada_entrega = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dni_responsable_cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precio_total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -94,7 +99,7 @@
             this.txt_valor.Location = new System.Drawing.Point(626, 28);
             this.txt_valor.Name = "txt_valor";
             this.txt_valor.Size = new System.Drawing.Size(336, 22);
-            this.txt_valor.TabIndex = 6;
+            this.txt_valor.TabIndex = 1;
             // 
             // lbl_valor
             // 
@@ -111,7 +116,7 @@
             this.cmb_filtrar_por.Location = new System.Drawing.Point(324, 26);
             this.cmb_filtrar_por.Name = "cmb_filtrar_por";
             this.cmb_filtrar_por.Size = new System.Drawing.Size(233, 24);
-            this.cmb_filtrar_por.TabIndex = 4;
+            this.cmb_filtrar_por.TabIndex = 0;
             // 
             // lbl_filtrar_por
             // 
@@ -134,12 +139,25 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id_orden_trabajo,
+            this.id_estado,
+            this.fecha_estimada_entrega,
+            this.dni_responsable_cliente,
+            this.precio_total});
             this.dataGridView1.Location = new System.Drawing.Point(23, 65);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(1014, 581);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // panel2
             // 
@@ -157,7 +175,7 @@
             this.panel2.Controls.Add(this.btn_eliminar);
             this.panel2.Controls.Add(this.btn_controlar);
             this.panel2.Controls.Add(this.lbl_ot);
-            this.panel2.Controls.Add(this.button1);
+            this.panel2.Controls.Add(this.btn_nueva_ot);
             this.panel2.Location = new System.Drawing.Point(24, 44);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(222, 665);
@@ -167,7 +185,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(79, 486);
+            this.label1.Location = new System.Drawing.Point(79, 472);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(57, 17);
             this.label1.TabIndex = 20;
@@ -176,28 +194,29 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(18, 563);
+            this.button2.Location = new System.Drawing.Point(18, 549);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(179, 37);
-            this.button2.TabIndex = 19;
+            this.button2.TabIndex = 9;
             this.button2.Text = "Cambiar usuario";
             this.button2.UseVisualStyleBackColor = false;
             // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(19, 609);
+            this.button8.Location = new System.Drawing.Point(19, 595);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(179, 37);
-            this.button8.TabIndex = 18;
+            this.button8.TabIndex = 10;
             this.button8.Text = "Salir";
             this.button8.UseVisualStyleBackColor = false;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(18, 517);
+            this.button7.Location = new System.Drawing.Point(18, 503);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(179, 37);
-            this.button7.TabIndex = 17;
+            this.button7.TabIndex = 8;
             this.button7.Text = "Cerrar sesión";
             this.button7.UseVisualStyleBackColor = false;
             // 
@@ -206,7 +225,7 @@
             this.button6.Location = new System.Drawing.Point(18, 400);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(179, 37);
-            this.button6.TabIndex = 16;
+            this.button6.TabIndex = 7;
             this.button6.Text = "Usuarios";
             this.button6.UseVisualStyleBackColor = false;
             // 
@@ -215,7 +234,7 @@
             this.button5.Location = new System.Drawing.Point(18, 314);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(179, 37);
-            this.button5.TabIndex = 15;
+            this.button5.TabIndex = 5;
             this.button5.Text = "Empleados";
             this.button5.UseVisualStyleBackColor = false;
             this.button5.Click += new System.EventHandler(this.button5_Click);
@@ -225,7 +244,7 @@
             this.button4.Location = new System.Drawing.Point(18, 357);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(179, 37);
-            this.button4.TabIndex = 14;
+            this.button4.TabIndex = 6;
             this.button4.Text = "Reportes";
             this.button4.UseVisualStyleBackColor = false;
             // 
@@ -234,7 +253,7 @@
             this.button3.Location = new System.Drawing.Point(18, 271);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(179, 37);
-            this.button3.TabIndex = 8;
+            this.button3.TabIndex = 4;
             this.button3.Text = "Maquinas";
             this.button3.UseVisualStyleBackColor = false;
             // 
@@ -243,7 +262,7 @@
             this.btn_clientes_responsables.Location = new System.Drawing.Point(18, 228);
             this.btn_clientes_responsables.Name = "btn_clientes_responsables";
             this.btn_clientes_responsables.Size = new System.Drawing.Size(179, 37);
-            this.btn_clientes_responsables.TabIndex = 7;
+            this.btn_clientes_responsables.TabIndex = 3;
             this.btn_clientes_responsables.Text = "Clientes y Responsables";
             this.btn_clientes_responsables.UseVisualStyleBackColor = false;
             this.btn_clientes_responsables.Click += new System.EventHandler(this.btn_clientes_responsables_Click);
@@ -261,23 +280,23 @@
             // btn_eliminar
             // 
             this.btn_eliminar.Enabled = false;
-            this.btn_eliminar.Location = new System.Drawing.Point(29, 126);
+            this.btn_eliminar.Location = new System.Drawing.Point(25, 136);
             this.btn_eliminar.Name = "btn_eliminar";
             this.btn_eliminar.Size = new System.Drawing.Size(168, 35);
-            this.btn_eliminar.TabIndex = 3;
+            this.btn_eliminar.TabIndex = 2;
             this.btn_eliminar.Text = "Eliminar";
-            this.btn_eliminar.UseVisualStyleBackColor = true;
+            this.btn_eliminar.UseVisualStyleBackColor = false;
             this.btn_eliminar.Click += new System.EventHandler(this.button3_Click);
             // 
             // btn_controlar
             // 
             this.btn_controlar.Enabled = false;
-            this.btn_controlar.Location = new System.Drawing.Point(29, 85);
+            this.btn_controlar.Location = new System.Drawing.Point(25, 95);
             this.btn_controlar.Name = "btn_controlar";
             this.btn_controlar.Size = new System.Drawing.Size(168, 35);
-            this.btn_controlar.TabIndex = 2;
+            this.btn_controlar.TabIndex = 1;
             this.btn_controlar.Text = "Controlar";
-            this.btn_controlar.UseVisualStyleBackColor = true;
+            this.btn_controlar.UseVisualStyleBackColor = false;
             this.btn_controlar.Click += new System.EventHandler(this.btn_controlar_Click);
             // 
             // lbl_ot
@@ -291,15 +310,15 @@
             this.lbl_ot.Text = "Ordenes de Trabajo";
             this.lbl_ot.Click += new System.EventHandler(this.lbl_ot_Click);
             // 
-            // button1
+            // btn_nueva_ot
             // 
-            this.button1.Location = new System.Drawing.Point(29, 44);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(168, 35);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Nueva";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btn_nueva_ot.Location = new System.Drawing.Point(25, 54);
+            this.btn_nueva_ot.Name = "btn_nueva_ot";
+            this.btn_nueva_ot.Size = new System.Drawing.Size(168, 35);
+            this.btn_nueva_ot.TabIndex = 0;
+            this.btn_nueva_ot.Text = "Nueva";
+            this.btn_nueva_ot.UseVisualStyleBackColor = false;
+            this.btn_nueva_ot.Click += new System.EventHandler(this.button1_Click);
             // 
             // _pav_dbDataSet
             // 
@@ -409,6 +428,32 @@
             this.lbl_nmb_usuario.Size = new System.Drawing.Size(118, 17);
             this.lbl_nmb_usuario.TabIndex = 4;
             this.lbl_nmb_usuario.Text = "nombreUsuario";
+            this.lbl_nmb_usuario.Click += new System.EventHandler(this.lbl_nmb_usuario_Click);
+            // 
+            // id_orden_trabajo
+            // 
+            this.id_orden_trabajo.HeaderText = "ID";
+            this.id_orden_trabajo.Name = "id_orden_trabajo";
+            // 
+            // id_estado
+            // 
+            this.id_estado.HeaderText = "Estado";
+            this.id_estado.Name = "id_estado";
+            // 
+            // fecha_estimada_entrega
+            // 
+            this.fecha_estimada_entrega.HeaderText = "Fecha Estimada Entrega";
+            this.fecha_estimada_entrega.Name = "fecha_estimada_entrega";
+            // 
+            // dni_responsable_cliente
+            // 
+            this.dni_responsable_cliente.HeaderText = "DNI Contacto ";
+            this.dni_responsable_cliente.Name = "dni_responsable_cliente";
+            // 
+            // precio_total
+            // 
+            this.precio_total.HeaderText = "Precio Total";
+            this.precio_total.Name = "precio_total";
             // 
             // frm_Dashboard
             // 
@@ -454,7 +499,7 @@
         private System.Windows.Forms.BindingSource ordentrabajoBindingSource;
         private _pav_dbDataSetTableAdapters.orden_trabajoTableAdapter orden_trabajoTableAdapter;
         private System.Windows.Forms.Label lbl_dashboard;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_nueva_ot;
         private System.Windows.Forms.Button btn_eliminar;
         private System.Windows.Forms.Button btn_controlar;
         private System.Windows.Forms.ComboBox cmb_filtrar_por;
@@ -482,5 +527,10 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_orden_trabajo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_estado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fecha_estimada_entrega;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dni_responsable_cliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn precio_total;
     }
 }

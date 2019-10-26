@@ -22,3 +22,5 @@ D:\Projects\pav-application\pavApplication\obj\Debug\pavApplication.csproj.CoreC
 D:\Projects\pav-application\pavApplication\obj\Debug\pavApplication.exe
 D:\Projects\pav-application\pavApplication\obj\Debug\pavApplication.pdb
 D:\Projects\pav-application\pavApplication\obj\Debug\pavApplication.Vistas.frm_Login.resources
+D:\Projects\pav-application\pavApplication\obj\Debug\pavApplication.Vistas.frm_Controlar_OT.resources
+D:\Projects\pav-application\pavApplication\obj\Debug\pavApplication.Vistas.frm_Nueva_OT.resources

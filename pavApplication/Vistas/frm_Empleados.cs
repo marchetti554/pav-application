@@ -76,7 +76,6 @@ namespace pavApplication.Views
                     + Int32.Parse(dgv_empleados.SelectedRows[0].Cells["legajo_empleado"].Value.ToString()) + ";";
                 bdHelper.actualizarBD(query);
                 actualizarGrilla();
-                dgv_empleados.ClearSelection();
             }
         }
 
@@ -126,7 +125,6 @@ namespace pavApplication.Views
         {
             estaActualizando = false;
             clearFields();
-            dgv_empleados.ClearSelection();
         }
 
         private void clearFields()

@@ -36,6 +36,12 @@ namespace pavApplication.Views
             this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgv_responsables = new System.Windows.Forms.DataGridView();
+            this.dni = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.telefono_1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.email_1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_cliente_1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lbl_clientes = new System.Windows.Forms.Label();
             this.lbl_responsable = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -131,13 +137,61 @@ namespace pavApplication.Views
             // 
             this.dgv_responsables.AllowUserToAddRows = false;
             this.dgv_responsables.AllowUserToDeleteRows = false;
+            this.dgv_responsables.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv_responsables.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgv_responsables.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_responsables.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dni,
+            this.nombre,
+            this.apellido,
+            this.telefono_1,
+            this.email_1,
+            this.id_cliente_1});
             this.dgv_responsables.Location = new System.Drawing.Point(294, 430);
+            this.dgv_responsables.MultiSelect = false;
             this.dgv_responsables.Name = "dgv_responsables";
             this.dgv_responsables.ReadOnly = true;
             this.dgv_responsables.RowTemplate.Height = 24;
+            this.dgv_responsables.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_responsables.Size = new System.Drawing.Size(1070, 309);
             this.dgv_responsables.TabIndex = 1;
+            this.dgv_responsables.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_responsables_CellContentClick);
+            // 
+            // dni
+            // 
+            this.dni.HeaderText = "Documento";
+            this.dni.Name = "dni";
+            this.dni.ReadOnly = true;
+            // 
+            // nombre
+            // 
+            this.nombre.HeaderText = "Nombre";
+            this.nombre.Name = "nombre";
+            this.nombre.ReadOnly = true;
+            // 
+            // apellido
+            // 
+            this.apellido.HeaderText = "Apellido";
+            this.apellido.Name = "apellido";
+            this.apellido.ReadOnly = true;
+            // 
+            // telefono_1
+            // 
+            this.telefono_1.HeaderText = "Telefono";
+            this.telefono_1.Name = "telefono_1";
+            this.telefono_1.ReadOnly = true;
+            // 
+            // email_1
+            // 
+            this.email_1.HeaderText = "Email";
+            this.email_1.Name = "email_1";
+            this.email_1.ReadOnly = true;
+            // 
+            // id_cliente_1
+            // 
+            this.id_cliente_1.HeaderText = "Cliente ID";
+            this.id_cliente_1.Name = "id_cliente_1";
+            this.id_cliente_1.ReadOnly = true;
             // 
             // lbl_clientes
             // 
@@ -416,6 +470,7 @@ namespace pavApplication.Views
             this.btn_eliminar_resp.TabIndex = 8;
             this.btn_eliminar_resp.Text = "Eliminar";
             this.btn_eliminar_resp.UseVisualStyleBackColor = true;
+            this.btn_eliminar_resp.Click += new System.EventHandler(this.btn_eliminar_resp_Click_1);
             // 
             // btn_modificar_resp
             // 
@@ -425,6 +480,7 @@ namespace pavApplication.Views
             this.btn_modificar_resp.TabIndex = 7;
             this.btn_modificar_resp.Text = "Modificar";
             this.btn_modificar_resp.UseVisualStyleBackColor = true;
+            this.btn_modificar_resp.Click += new System.EventHandler(this.btn_modificar_resp_Click);
             // 
             // btn_agregar_resp
             // 
@@ -434,6 +490,7 @@ namespace pavApplication.Views
             this.btn_agregar_resp.TabIndex = 6;
             this.btn_agregar_resp.Text = "Agregar";
             this.btn_agregar_resp.UseVisualStyleBackColor = true;
+            this.btn_agregar_resp.Click += new System.EventHandler(this.btn_agregar_resp_Click);
             // 
             // btn_nuevo_resp
             // 
@@ -504,8 +561,10 @@ namespace pavApplication.Views
             // 
             // frm_Clientes
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.AutoScroll = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1377, 891);
             this.Controls.Add(this.btn_salir);
             this.Controls.Add(this.panel1);
@@ -522,7 +581,10 @@ namespace pavApplication.Views
             this.Controls.Add(this.lbl_clientes);
             this.Controls.Add(this.dgv_responsables);
             this.Controls.Add(this.dgv_clientes);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frm_Clientes";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Empresas y Clientes";
             this.Load += new System.EventHandler(this.frm_Clientes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_clientes)).EndInit();
@@ -583,5 +645,11 @@ namespace pavApplication.Views
         private System.Windows.Forms.DataGridViewTextBoxColumn telefono;
         private System.Windows.Forms.TextBox txt_empresa_pertenece;
         private System.Windows.Forms.Label lbl_empresa;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dni;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn apellido;
+        private System.Windows.Forms.DataGridViewTextBoxColumn telefono_1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn email_1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_cliente_1;
     }
 }
