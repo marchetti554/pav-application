@@ -31,6 +31,7 @@ namespace pavApplication.Views
 
         private void actualizarGrillaOT()
         {
+            dataGridView1.Rows.Clear();
             DataTable tabla = bdHelper.consultarTabla("orden_trabajo");
             if (tabla.Rows.Count > 0)
             {
@@ -40,12 +41,25 @@ namespace pavApplication.Views
                         + tabla.Rows[i]["id_estado"]);
 
                     dataGridView1.Rows.Add(tabla.Rows[i]["id_orden_trabajo"],
-                                    tabla.Rows[i]["id_estado"],
+                                    traducirEstado(tabla.Rows[i]["id_estado"]),
                                     tabla.Rows[i]["fecha_estimada_entrega"],
                                     tabla.Rows[i]["dni_responsable_cliente"],
                                     tabla.Rows[i]["precio_total"]);
                 }
             }
+        }
+
+        private object traducirEstado(object estado)
+        {
+            if((int) estado == 5)
+            {
+                return "Cotizada";
+            }
+            if ((int)estado == 1)
+            {
+                return "Confirmada";
+            }
+            return "Generada";
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -132,6 +146,22 @@ namespace pavApplication.Views
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void frm_Dashboard_Enter(object sender, EventArgs e)
+        {
+            actualizarGrillaOT();
+        }
+
+        private void a(object sender, EventArgs e)
+        {
+            
+            actualizarGrillaOT();
+        }
+
+        private void frm_Dashboard_Activated(object sender, EventArgs e)
+        {
+            actualizarGrillaOT();
         }
     }
 }

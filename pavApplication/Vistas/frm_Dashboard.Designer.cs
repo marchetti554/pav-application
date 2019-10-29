@@ -36,6 +36,11 @@
             this.lbl_filtrar_por = new System.Windows.Forms.Label();
             this.lbl_dashboard = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.id_orden_trabajo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fecha_estimada_entrega = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dni_responsable_cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precio_total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
@@ -66,11 +71,6 @@
             this.modificarPerfilToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lbl_user_logged = new System.Windows.Forms.Label();
             this.lbl_nmb_usuario = new System.Windows.Forms.Label();
-            this.id_orden_trabajo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id_estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fecha_estimada_entrega = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dni_responsable_cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precio_total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -158,6 +158,31 @@
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // id_orden_trabajo
+            // 
+            this.id_orden_trabajo.HeaderText = "ID";
+            this.id_orden_trabajo.Name = "id_orden_trabajo";
+            // 
+            // id_estado
+            // 
+            this.id_estado.HeaderText = "Estado";
+            this.id_estado.Name = "id_estado";
+            // 
+            // fecha_estimada_entrega
+            // 
+            this.fecha_estimada_entrega.HeaderText = "Fecha Estimada Entrega";
+            this.fecha_estimada_entrega.Name = "fecha_estimada_entrega";
+            // 
+            // dni_responsable_cliente
+            // 
+            this.dni_responsable_cliente.HeaderText = "DNI Contacto ";
+            this.dni_responsable_cliente.Name = "dni_responsable_cliente";
+            // 
+            // precio_total
+            // 
+            this.precio_total.HeaderText = "Precio Total";
+            this.precio_total.Name = "precio_total";
             // 
             // panel2
             // 
@@ -430,31 +455,6 @@
             this.lbl_nmb_usuario.Text = "nombreUsuario";
             this.lbl_nmb_usuario.Click += new System.EventHandler(this.lbl_nmb_usuario_Click);
             // 
-            // id_orden_trabajo
-            // 
-            this.id_orden_trabajo.HeaderText = "ID";
-            this.id_orden_trabajo.Name = "id_orden_trabajo";
-            // 
-            // id_estado
-            // 
-            this.id_estado.HeaderText = "Estado";
-            this.id_estado.Name = "id_estado";
-            // 
-            // fecha_estimada_entrega
-            // 
-            this.fecha_estimada_entrega.HeaderText = "Fecha Estimada Entrega";
-            this.fecha_estimada_entrega.Name = "fecha_estimada_entrega";
-            // 
-            // dni_responsable_cliente
-            // 
-            this.dni_responsable_cliente.HeaderText = "DNI Contacto ";
-            this.dni_responsable_cliente.Name = "dni_responsable_cliente";
-            // 
-            // precio_total
-            // 
-            this.precio_total.HeaderText = "Precio Total";
-            this.precio_total.Name = "precio_total";
-            // 
             // frm_Dashboard
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
@@ -473,7 +473,9 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Methfarbi";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Activated += new System.EventHandler(this.frm_Dashboard_Activated);
             this.Load += new System.EventHandler(this.frm_Dashboard_Load);
+            this.Enter += new System.EventHandler(this.frm_Dashboard_Enter);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

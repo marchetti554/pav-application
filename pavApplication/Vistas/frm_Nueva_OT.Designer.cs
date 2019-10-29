@@ -162,6 +162,7 @@
             this.dgv_detalles.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_detalles.Size = new System.Drawing.Size(1364, 189);
             this.dgv_detalles.TabIndex = 6;
+            this.dgv_detalles.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_detalles_CellContentClick);
             // 
             // id_detalle
             // 
@@ -340,17 +341,39 @@
             // 
             // numericUpDown4
             // 
+            this.numericUpDown4.Increment = new decimal(new int[] {
+            25,
+            0,
+            0,
+            0});
             this.numericUpDown4.Location = new System.Drawing.Point(354, 29);
+            this.numericUpDown4.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
             this.numericUpDown4.Name = "numericUpDown4";
             this.numericUpDown4.Size = new System.Drawing.Size(229, 22);
             this.numericUpDown4.TabIndex = 7;
+            this.numericUpDown4.ValueChanged += new System.EventHandler(this.numericUpDown4_ValueChanged);
             // 
             // numericUpDown5
             // 
+            this.numericUpDown5.Increment = new decimal(new int[] {
+            25,
+            0,
+            0,
+            0});
             this.numericUpDown5.Location = new System.Drawing.Point(353, 76);
+            this.numericUpDown5.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
             this.numericUpDown5.Name = "numericUpDown5";
             this.numericUpDown5.Size = new System.Drawing.Size(230, 22);
             this.numericUpDown5.TabIndex = 8;
+            this.numericUpDown5.ValueChanged += new System.EventHandler(this.numericUpDown5_ValueChanged);
             // 
             // lbl_nro_ot
             // 
@@ -400,6 +423,7 @@
             this.btn_nueva.TabIndex = 34;
             this.btn_nueva.Text = "Nueva Orden de Trabajo";
             this.btn_nueva.UseVisualStyleBackColor = true;
+            this.btn_nueva.Click += new System.EventHandler(this.btn_nueva_Click);
             // 
             // _pav_dbDataSet
             // 
@@ -447,6 +471,7 @@
             this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(212, 22);
             this.textBox1.TabIndex = 36;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label5
             // 

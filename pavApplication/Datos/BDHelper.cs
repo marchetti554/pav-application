@@ -105,6 +105,11 @@ namespace pavApplication.Utils
             }
         }
 
+        public void finalizarTransaction()
+        {
+            transaccion.Rollback();
+        }
+
         public void startTransaction()
         {
             estadoTransaccion = TransactionStatus.iniciada;
