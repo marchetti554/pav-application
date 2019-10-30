@@ -26,6 +26,7 @@ namespace pavApplication.Views
 
         private void frm_Dashboard_Load(object sender, EventArgs e)
         {
+            btn_nueva_ot.Focus();
             lbl_nmb_usuario.Text = Constants.UsuarioLogueado;
         }
 

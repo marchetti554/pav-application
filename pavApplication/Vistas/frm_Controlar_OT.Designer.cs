@@ -72,7 +72,7 @@
             // 
             this.lbl_numero_ot.AutoSize = true;
             this.lbl_numero_ot.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_numero_ot.Location = new System.Drawing.Point(283, 13);
+            this.lbl_numero_ot.Location = new System.Drawing.Point(347, 12);
             this.lbl_numero_ot.Name = "lbl_numero_ot";
             this.lbl_numero_ot.Size = new System.Drawing.Size(88, 20);
             this.lbl_numero_ot.TabIndex = 2;
@@ -90,7 +90,6 @@
             // 
             // btn_iniciar
             // 
-            this.btn_iniciar.Enabled = false;
             this.btn_iniciar.Location = new System.Drawing.Point(202, 9);
             this.btn_iniciar.Name = "btn_iniciar";
             this.btn_iniciar.Size = new System.Drawing.Size(165, 99);
@@ -171,6 +170,7 @@
             this.panel1.Controls.Add(this.lbl_empleado);
             this.panel1.Controls.Add(this.cmb_empleado);
             this.panel1.Controls.Add(this.lbl_dni);
+            this.panel1.Enabled = false;
             this.panel1.Location = new System.Drawing.Point(781, 37);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(373, 113);

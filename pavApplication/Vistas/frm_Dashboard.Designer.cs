@@ -112,6 +112,7 @@
             // 
             // cmb_filtrar_por
             // 
+            this.cmb_filtrar_por.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_filtrar_por.FormattingEnabled = true;
             this.cmb_filtrar_por.Location = new System.Drawing.Point(324, 26);
             this.cmb_filtrar_por.Name = "cmb_filtrar_por";
@@ -315,7 +316,6 @@
             // 
             // btn_controlar
             // 
-            this.btn_controlar.Enabled = false;
             this.btn_controlar.Location = new System.Drawing.Point(25, 95);
             this.btn_controlar.Name = "btn_controlar";
             this.btn_controlar.Size = new System.Drawing.Size(168, 35);

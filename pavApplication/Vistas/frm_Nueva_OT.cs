@@ -41,7 +41,21 @@ namespace pavApplication.Vistas
 
         private void btn_salir_Click(object sender, EventArgs e)
         {
-            this.Close();
+            if (MessageBox.Show("¿Seguro que quiere cancelar la nueva Orden de Trabajo? Se perderan " +
+                "todos sus datos.", "¡Atención!", MessageBoxButtons.YesNoCancel) == DialogResult.Yes)
+            {
+                panel3.Enabled = true;
+                limpiarCamposBoleta();
+                bdHelper.finalizarTransaction();
+                dgv_detalles.Rows.Clear();          //TODO: Eliminar esto
+                actualizarPrecioTotal();
+                this.Close();
+            }
+        }
+
+        private void desecharCambiosOT()
+        {
+            throw new NotImplementedException();
         }
 
         private void btn_crear_ot_Click(object sender, EventArgs e)

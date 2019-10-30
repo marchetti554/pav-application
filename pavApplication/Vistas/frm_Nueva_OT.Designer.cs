@@ -108,7 +108,7 @@
             this.btn_salir.Location = new System.Drawing.Point(1082, 253);
             this.btn_salir.Name = "btn_salir";
             this.btn_salir.Size = new System.Drawing.Size(294, 40);
-            this.btn_salir.TabIndex = 13;
+            this.btn_salir.TabIndex = 18;
             this.btn_salir.Text = "Salir";
             this.btn_salir.UseVisualStyleBackColor = true;
             this.btn_salir.Click += new System.EventHandler(this.btn_salir_Click);
@@ -118,7 +118,7 @@
             this.btn_agregar_detalle.Location = new System.Drawing.Point(1080, 39);
             this.btn_agregar_detalle.Name = "btn_agregar_detalle";
             this.btn_agregar_detalle.Size = new System.Drawing.Size(296, 45);
-            this.btn_agregar_detalle.TabIndex = 11;
+            this.btn_agregar_detalle.TabIndex = 14;
             this.btn_agregar_detalle.Text = "Agregar Boleta";
             this.btn_agregar_detalle.UseVisualStyleBackColor = true;
             this.btn_agregar_detalle.Click += new System.EventHandler(this.btn_agregar_detalle_Click);
@@ -128,7 +128,7 @@
             this.button1.Location = new System.Drawing.Point(1081, 90);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(295, 49);
-            this.button1.TabIndex = 10;
+            this.button1.TabIndex = 15;
             this.button1.Text = "Borrar Boleta";
             this.button1.UseVisualStyleBackColor = true;
             // 
@@ -161,7 +161,7 @@
             this.dgv_detalles.RowTemplate.Height = 24;
             this.dgv_detalles.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_detalles.Size = new System.Drawing.Size(1364, 189);
-            this.dgv_detalles.TabIndex = 6;
+            this.dgv_detalles.TabIndex = 5;
             this.dgv_detalles.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_detalles_CellContentClick);
             // 
             // id_detalle
@@ -202,11 +202,12 @@
             // 
             this.cmb_cliente.DataSource = this.clientesBindingSource1;
             this.cmb_cliente.DisplayMember = "razon_social";
+            this.cmb_cliente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_cliente.FormattingEnabled = true;
             this.cmb_cliente.Location = new System.Drawing.Point(8, 26);
             this.cmb_cliente.Name = "cmb_cliente";
             this.cmb_cliente.Size = new System.Drawing.Size(322, 24);
-            this.cmb_cliente.TabIndex = 0;
+            this.cmb_cliente.TabIndex = 2;
             this.cmb_cliente.ValueMember = "id_cliente";
             this.cmb_cliente.SelectedIndexChanged += new System.EventHandler(this.cmb_cliente_SelectedIndexChanged);
             // 
@@ -220,7 +221,7 @@
             this.nmr_cant_piezas.Location = new System.Drawing.Point(9, 126);
             this.nmr_cant_piezas.Name = "nmr_cant_piezas";
             this.nmr_cant_piezas.Size = new System.Drawing.Size(322, 22);
-            this.nmr_cant_piezas.TabIndex = 1;
+            this.nmr_cant_piezas.TabIndex = 4;
             // 
             // lbl_cliente
             // 
@@ -228,7 +229,7 @@
             this.lbl_cliente.Location = new System.Drawing.Point(5, 6);
             this.lbl_cliente.Name = "lbl_cliente";
             this.lbl_cliente.Size = new System.Drawing.Size(55, 17);
-            this.lbl_cliente.TabIndex = 11;
+            this.lbl_cliente.TabIndex = 10;
             this.lbl_cliente.Text = "Cliente:";
             // 
             // lbl_cantidad_piezas
@@ -261,11 +262,12 @@
             // cmb_tipo_maquina
             // 
             this.cmb_tipo_maquina.DisplayMember = "id_tipo_maquina";
+            this.cmb_tipo_maquina.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_tipo_maquina.FormattingEnabled = true;
             this.cmb_tipo_maquina.Location = new System.Drawing.Point(10, 27);
             this.cmb_tipo_maquina.Name = "cmb_tipo_maquina";
             this.cmb_tipo_maquina.Size = new System.Drawing.Size(212, 24);
-            this.cmb_tipo_maquina.TabIndex = 3;
+            this.cmb_tipo_maquina.TabIndex = 9;
             this.cmb_tipo_maquina.ValueMember = "id_tipo_maquina";
             this.cmb_tipo_maquina.SelectedIndexChanged += new System.EventHandler(this.cmb_tipo_maquina_SelectedIndexChanged);
             // 
@@ -277,11 +279,12 @@
             // cmb_maquina
             // 
             this.cmb_maquina.DisplayMember = "id_maquina";
+            this.cmb_maquina.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_maquina.FormattingEnabled = true;
             this.cmb_maquina.Location = new System.Drawing.Point(10, 78);
             this.cmb_maquina.Name = "cmb_maquina";
             this.cmb_maquina.Size = new System.Drawing.Size(211, 24);
-            this.cmb_maquina.TabIndex = 4;
+            this.cmb_maquina.TabIndex = 10;
             this.cmb_maquina.ValueMember = "id_maquina";
             // 
             // maquinasBindingSource
@@ -303,7 +306,7 @@
             this.numericUpDown2.Location = new System.Drawing.Point(237, 29);
             this.numericUpDown2.Name = "numericUpDown2";
             this.numericUpDown2.Size = new System.Drawing.Size(211, 22);
-            this.numericUpDown2.TabIndex = 5;
+            this.numericUpDown2.TabIndex = 12;
             // 
             // label1
             // 
@@ -319,7 +322,7 @@
             this.numericUpDown3.Location = new System.Drawing.Point(236, 79);
             this.numericUpDown3.Name = "numericUpDown3";
             this.numericUpDown3.Size = new System.Drawing.Size(211, 22);
-            this.numericUpDown3.TabIndex = 6;
+            this.numericUpDown3.TabIndex = 13;
             // 
             // label2
             // 
@@ -354,7 +357,7 @@
             0});
             this.numericUpDown4.Name = "numericUpDown4";
             this.numericUpDown4.Size = new System.Drawing.Size(229, 22);
-            this.numericUpDown4.TabIndex = 7;
+            this.numericUpDown4.TabIndex = 6;
             this.numericUpDown4.ValueChanged += new System.EventHandler(this.numericUpDown4_ValueChanged);
             // 
             // numericUpDown5
@@ -372,7 +375,7 @@
             0});
             this.numericUpDown5.Name = "numericUpDown5";
             this.numericUpDown5.Size = new System.Drawing.Size(230, 22);
-            this.numericUpDown5.TabIndex = 8;
+            this.numericUpDown5.TabIndex = 7;
             this.numericUpDown5.ValueChanged += new System.EventHandler(this.numericUpDown5_ValueChanged);
             // 
             // lbl_nro_ot
@@ -400,7 +403,7 @@
             this.btn_crear_ot.Location = new System.Drawing.Point(1082, 145);
             this.btn_crear_ot.Name = "btn_crear_ot";
             this.btn_crear_ot.Size = new System.Drawing.Size(295, 48);
-            this.btn_crear_ot.TabIndex = 12;
+            this.btn_crear_ot.TabIndex = 16;
             this.btn_crear_ot.Text = "Crear Orden de Trabajo";
             this.btn_crear_ot.UseVisualStyleBackColor = true;
             this.btn_crear_ot.Click += new System.EventHandler(this.btn_crear_ot_Click);
@@ -420,7 +423,7 @@
             this.btn_nueva.Location = new System.Drawing.Point(1081, 199);
             this.btn_nueva.Name = "btn_nueva";
             this.btn_nueva.Size = new System.Drawing.Size(295, 48);
-            this.btn_nueva.TabIndex = 34;
+            this.btn_nueva.TabIndex = 17;
             this.btn_nueva.Text = "Nueva Orden de Trabajo";
             this.btn_nueva.UseVisualStyleBackColor = true;
             this.btn_nueva.Click += new System.EventHandler(this.btn_nueva_Click);
@@ -488,24 +491,26 @@
             this.numericUpDown1.Location = new System.Drawing.Point(10, 30);
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(211, 22);
-            this.numericUpDown1.TabIndex = 38;
+            this.numericUpDown1.TabIndex = 8;
             this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
             // 
             // txt_observaciones
             // 
             this.txt_observaciones.Location = new System.Drawing.Point(8, 133);
+            this.txt_observaciones.MaxLength = 200;
             this.txt_observaciones.Multiline = true;
             this.txt_observaciones.Name = "txt_observaciones";
             this.txt_observaciones.Size = new System.Drawing.Size(438, 117);
-            this.txt_observaciones.TabIndex = 9;
+            this.txt_observaciones.TabIndex = 11;
             // 
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(8, 183);
+            this.textBox2.MaxLength = 150;
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(323, 41);
-            this.textBox2.TabIndex = 39;
+            this.textBox2.TabIndex = 5;
             // 
             // label8
             // 
@@ -573,7 +578,7 @@
             this.panel3.Location = new System.Drawing.Point(16, 39);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(593, 234);
-            this.panel3.TabIndex = 44;
+            this.panel3.TabIndex = 1;
             // 
             // lbl_responsable
             // 
@@ -588,11 +593,12 @@
             // 
             this.cmb_responsable.DataSource = this.clientesBindingSource1;
             this.cmb_responsable.DisplayMember = "razon_social";
+            this.cmb_responsable.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_responsable.FormattingEnabled = true;
             this.cmb_responsable.Location = new System.Drawing.Point(8, 74);
             this.cmb_responsable.Name = "cmb_responsable";
             this.cmb_responsable.Size = new System.Drawing.Size(322, 24);
-            this.cmb_responsable.TabIndex = 43;
+            this.cmb_responsable.TabIndex = 3;
             this.cmb_responsable.ValueMember = "id_cliente";
             this.cmb_responsable.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
