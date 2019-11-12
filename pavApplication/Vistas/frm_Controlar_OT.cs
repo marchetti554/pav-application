@@ -15,12 +15,14 @@ namespace pavApplication.Vistas
     {
 
         int orden_trabajo_controlando;
+        int cantidad_boletas = 0;
 
         private BDHelper bdHelper = BDHelper.getBDHelper();
 
         public frm_Controlar_OT()
         {
             InitializeComponent();
+            cantidad_boletas = 0;
         }
 
         public frm_Controlar_OT(int id_orden_trabajo)
@@ -41,6 +43,7 @@ namespace pavApplication.Vistas
             dgv_detalles.Rows.Clear();
             string retrieveBoletasQuery = "select * from detalle_orden WHERE id_orden_trabajo = " + orden_trabajo;
             DataTable tabla = bdHelper.consultarSQL(retrieveBoletasQuery);
+            cantidad_boletas = tabla.Rows.Count;
             if (tabla.Rows.Count > 0)
             {
                 for (int i = 0; i < tabla.Rows.Count; i++)
@@ -83,7 +86,13 @@ namespace pavApplication.Vistas
                 actualizarDetalles(orden_trabajo_controlando);
             } else
             {
-                //Avisar que no se puede por el estado que no es el requerido bla bla bla 
+                MessageBox.Show("Esta Boleta no posee el estado requerido, no se puede Completar.", "¡Atención!", MessageBoxButtons.OK);
+            }
+            string chequearQuedanBoletasPorCompletarQuery = "Select * FROM detalle_orden WHERE (id_orden_trabajo = " + orden_trabajo_controlando + " AND estado = 'Completada');";
+            DataTable cantidadBoletasCompletadas = bdHelper.consultarSQL(chequearQuedanBoletasPorCompletarQuery);
+            if(cantidad_boletas == cantidadBoletasCompletadas.Rows.Count)
+            {
+                btn_finalizar.Enabled = true;
             }
         }
 
@@ -112,7 +121,7 @@ namespace pavApplication.Vistas
             }
             else
             {
-                //Avisar que no se puede por el estado que no es el requerido bla bla bla 
+                MessageBox.Show("Esta Boleta no posee el estado requerido, no se puede Iniciar.", "¡Atención!", MessageBoxButtons.OK);
             }
         }
 
@@ -153,6 +162,23 @@ namespace pavApplication.Vistas
                 panel1.Enabled = false;
                 btn_completar.Enabled = false;
                 btn_reabrir.Enabled = false;
+            }
+        }
+
+        private void btn_finalizar_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("¿Desea finalizar la Orden de Trabajo?", "¡Atención!", MessageBoxButtons.YesNoCancel) == DialogResult.Yes)
+            {
+                DataTable detalles_orden_por_sumar = bdHelper.consultarSQL("SELECT duracion_real_trabajo FROM detalle_orden WHERE " +
+                    "id_orden_trabajo = " + orden_trabajo_controlando);
+                float total_tiempo = 0;
+                foreach(DataRow detalle in detalles_orden_por_sumar.Rows)
+                {
+                    total_tiempo += Int32.Parse(detalle["duracion_real_trabajo"].ToString());
+                }
+                bdHelper.actualizarBD("UPDATE orden_trabajo SET id_estado = 2, tiempo_total_real = " + total_tiempo + " WHERE " +
+                    "id_orden_trabajo = " + orden_trabajo_controlando + ";");
+                this.Close();
             }
         }
     }

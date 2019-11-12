@@ -39,11 +39,15 @@ namespace pavApplication.Views
             {
                 for (int i = 0; i < tabla.Rows.Count; i++)
                 {
+                    int orden_trabajo_cargando = Int32.Parse(tabla.Rows[i]["id_orden_trabajo"].ToString());
                     DataTable estado = bdHelper.consultarSQL("Select * from Estado where id_estado = "
                         + tabla.Rows[i]["id_estado"]);
+                    DataTable boletasEnCurso = bdHelper.consultarSQL("Select * From detalle_orden WHERE (id_orden_trabajo = " + orden_trabajo_cargando +
+                        " AND estado = 'En Curso');");
+                    int cantidadBoletasEnCurso = boletasEnCurso.Rows.Count;
 
                     dataGridView1.Rows.Add(tabla.Rows[i]["id_orden_trabajo"],
-                                    traducirEstado(tabla.Rows[i]["id_estado"]),
+                                    cantidadBoletasEnCurso == 0 ? traducirEstado(tabla.Rows[i]["id_estado"]) : "En Curso",
                                     tabla.Rows[i]["fecha_estimada_entrega"],
                                     tabla.Rows[i]["dni_responsable_cliente"],
                                     tabla.Rows[i]["precio_total"]);
@@ -52,7 +56,7 @@ namespace pavApplication.Views
                     {
                         dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.LightSeaGreen;
                     }
-                    if (Int32.Parse(tabla.Rows[i]["id_estado"].ToString()) == 3)
+                    if (Int32.Parse(tabla.Rows[i]["id_estado"].ToString()) == 2)
                     {
                         dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.Green;
                     }
@@ -72,13 +76,17 @@ namespace pavApplication.Views
         {
             if((int) estado == 5)
             {
-                return "Cotizada";
+                return "Confirmada";
             }
             if ((int)estado == 1)
             {
-                return "Confirmada";
+                return "Generada";
             }
-            return "Generada";
+            if ((int)estado == 2)
+            {
+                return "Completada";
+            }
+            return "En Curso";
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -181,7 +189,7 @@ namespace pavApplication.Views
 
         private void button8_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -204,6 +212,11 @@ namespace pavApplication.Views
         private void frm_Dashboard_Activated(object sender, EventArgs e)
         {
             actualizarGrillaOT();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

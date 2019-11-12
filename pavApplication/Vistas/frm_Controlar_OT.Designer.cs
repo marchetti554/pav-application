@@ -29,6 +29,12 @@
         private void InitializeComponent()
         {
             this.dgv_detalles = new System.Windows.Forms.DataGridView();
+            this.id_detalle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_maquina = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fecha_hora_inicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tiempo_estimado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tiempo_real = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lbl_nro_ot = new System.Windows.Forms.Label();
             this.lbl_numero_ot = new System.Windows.Forms.Label();
             this.btn_completar = new System.Windows.Forms.Button();
@@ -37,12 +43,6 @@
             this.btn_finalizar = new System.Windows.Forms.Button();
             this.btn_reabrir = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.id_detalle = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id_maquina = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fecha_hora_inicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tiempo_estimado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tiempo_real = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_detalles)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -76,6 +76,42 @@
             this.dgv_detalles.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_detalles_CellContentClick);
             this.dgv_detalles.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_detalles_CellMouseClick);
             this.dgv_detalles.SelectionChanged += new System.EventHandler(this.dgv_detalles_SelectionChanged);
+            // 
+            // id_detalle
+            // 
+            this.id_detalle.HeaderText = "Nro Boleta";
+            this.id_detalle.Name = "id_detalle";
+            this.id_detalle.ReadOnly = true;
+            // 
+            // id_maquina
+            // 
+            this.id_maquina.HeaderText = "ID Maquina";
+            this.id_maquina.Name = "id_maquina";
+            this.id_maquina.ReadOnly = true;
+            // 
+            // estado
+            // 
+            this.estado.HeaderText = "Estado";
+            this.estado.Name = "estado";
+            this.estado.ReadOnly = true;
+            // 
+            // fecha_hora_inicio
+            // 
+            this.fecha_hora_inicio.HeaderText = "Inicio";
+            this.fecha_hora_inicio.Name = "fecha_hora_inicio";
+            this.fecha_hora_inicio.ReadOnly = true;
+            // 
+            // tiempo_estimado
+            // 
+            this.tiempo_estimado.HeaderText = "Tiempo Estimado";
+            this.tiempo_estimado.Name = "tiempo_estimado";
+            this.tiempo_estimado.ReadOnly = true;
+            // 
+            // tiempo_real
+            // 
+            this.tiempo_real.HeaderText = "Tiempo Real";
+            this.tiempo_real.Name = "tiempo_real";
+            this.tiempo_real.ReadOnly = true;
             // 
             // lbl_nro_ot
             // 
@@ -137,6 +173,7 @@
             this.btn_finalizar.TabIndex = 2;
             this.btn_finalizar.Text = "Finalizar Orden de Trabajo";
             this.btn_finalizar.UseVisualStyleBackColor = true;
+            this.btn_finalizar.Click += new System.EventHandler(this.btn_finalizar_Click);
             // 
             // btn_reabrir
             // 
@@ -155,42 +192,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(241, 113);
             this.panel1.TabIndex = 9;
-            // 
-            // id_detalle
-            // 
-            this.id_detalle.HeaderText = "Nro Boleta";
-            this.id_detalle.Name = "id_detalle";
-            this.id_detalle.ReadOnly = true;
-            // 
-            // id_maquina
-            // 
-            this.id_maquina.HeaderText = "ID Maquina";
-            this.id_maquina.Name = "id_maquina";
-            this.id_maquina.ReadOnly = true;
-            // 
-            // estado
-            // 
-            this.estado.HeaderText = "Estado";
-            this.estado.Name = "estado";
-            this.estado.ReadOnly = true;
-            // 
-            // fecha_hora_inicio
-            // 
-            this.fecha_hora_inicio.HeaderText = "Inicio";
-            this.fecha_hora_inicio.Name = "fecha_hora_inicio";
-            this.fecha_hora_inicio.ReadOnly = true;
-            // 
-            // tiempo_estimado
-            // 
-            this.tiempo_estimado.HeaderText = "Tiempo Estimado";
-            this.tiempo_estimado.Name = "tiempo_estimado";
-            this.tiempo_estimado.ReadOnly = true;
-            // 
-            // tiempo_real
-            // 
-            this.tiempo_real.HeaderText = "Tiempo Real";
-            this.tiempo_real.Name = "tiempo_real";
-            this.tiempo_real.ReadOnly = true;
             // 
             // frm_Controlar_OT
             // 
