@@ -15,6 +15,7 @@ namespace pavApplication.Vistas
     {
 
         Int32 id_orden_trabajo_creando;
+        Int32 tiempo_total_estimado = 0;
         Decimal precioHoraTrabajo;
         Decimal precioHoraCalibracion;
         private BDHelper bdHelper = BDHelper.getBDHelper();
@@ -22,6 +23,7 @@ namespace pavApplication.Vistas
         public frm_Nueva_OT()
         {
             InitializeComponent();
+            tiempo_total_estimado = 0;
             cargarComboTipoMaquina();
             cargarComboMaquina();
             cargarComboCliente();
@@ -44,6 +46,7 @@ namespace pavApplication.Vistas
             if (MessageBox.Show("¿Seguro que quiere cancelar la nueva Orden de Trabajo? Se perderan " +
                 "todos sus datos.", "¡Atención!", MessageBoxButtons.YesNoCancel) == DialogResult.Yes)
             {
+                tiempo_total_estimado = 0;
                 panel3.Enabled = true;
                 limpiarCamposBoleta();
                 bdHelper.finalizarTransaction();
@@ -63,9 +66,11 @@ namespace pavApplication.Vistas
             if(MessageBox.Show("¿Quiere crear la Orden de Trabajo con las boletas de producción añadidas? Luego " +
                 "no podrá cambiarlas, deberá crear una nueva.", "¡Atención!", MessageBoxButtons.YesNoCancel) == DialogResult.Yes)
             {
+                actualizarPrecioTotal();
                 bdHelper.actualizarBD("UPDATE orden_trabajo SET precio_total = " + textBox1.Text + ", " +
                     "precio_hora_calibracion = " + numericUpDown4.Value + " , " +
                     "precio_hora_trabajo = " + numericUpDown5.Value + " , " +
+                    "tiempo_total_estimado = " + tiempo_total_estimado + " , " +
                     "cantidad_piezas = " + nmr_cant_piezas.Value + 
                     " WHERE id_orden_trabajo = " + id_orden_trabajo_creando + " ; ");
                 limpiarCamposBoleta();
@@ -150,7 +155,7 @@ namespace pavApplication.Vistas
                     bdHelper.consultarSQL("DBCC CHECKIDENT('detalle_orden', RESEED, 0)"); 
                     query = "insert into orden_trabajo (id_estado, precio_total, cantidad_piezas, precio_hora_trabajo, precio_hora_calibracion, " +
                     "fecha_estimada_entrega , dni_responsable_cliente , descripcion_pieza) values ("
-                    + "'" + 5 + "',"
+                    + "'" + 1 + "',"
                     + "'" + actualizarPrecioTotal() + "',"
                     + "'" + nmr_cant_piezas.Value + "',"
                     + "'" + numericUpDown4.Value + "',"
@@ -173,6 +178,7 @@ namespace pavApplication.Vistas
                        + "'" + numericUpDown3.Text + "',"
                        + "'" + "Generada" + "',"
                        + "'" + cmb_maquina.SelectedValue + "')";
+                tiempo_total_estimado += Int32.Parse(numericUpDown3.Text);
                 limpiarCamposBoleta();
                 bdHelper.consultarSQL(query);
                 actualizarTablaBoleta();

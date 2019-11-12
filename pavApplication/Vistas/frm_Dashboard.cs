@@ -47,6 +47,23 @@ namespace pavApplication.Views
                                     tabla.Rows[i]["fecha_estimada_entrega"],
                                     tabla.Rows[i]["dni_responsable_cliente"],
                                     tabla.Rows[i]["precio_total"]);
+
+                    if (Int32.Parse(tabla.Rows[i]["id_estado"].ToString()) == 1)
+                    {
+                        dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.LightSeaGreen;
+                    }
+                    if (Int32.Parse(tabla.Rows[i]["id_estado"].ToString()) == 3)
+                    {
+                        dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.Green;
+                    }
+                    if (Int32.Parse(tabla.Rows[i]["id_estado"].ToString()) == 4)
+                    {
+                        dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.GreenYellow;
+                    }
+                    if (Int32.Parse(tabla.Rows[i]["id_estado"].ToString()) == 5)
+                    {
+                        dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.LightGreen;
+                    }
                 }
             }
         }
@@ -108,9 +125,30 @@ namespace pavApplication.Views
 
         private void btn_controlar_Click(object sender, EventArgs e)
         {
-            Form controlarOT = new frm_Controlar_OT(id_orden_por_controlar);
-            controlarOT.ShowDialog();
-            
+            if(dataGridView1.SelectedRows[0].Cells["id_estado"].Value.ToString() == "Generada")
+            {
+                if (MessageBox.Show("Esta Orden de Trabajo está Generada, para controlarla deberá Confirmarla.", "¡Atención!", MessageBoxButtons.YesNoCancel) == DialogResult.Yes)
+                {
+                    String query = "update orden_trabajo SET id_estado = 5 WHERE id_orden_trabajo = "
+                        + Int32.Parse(dataGridView1.SelectedRows[0].Cells["id_orden_trabajo"].Value.ToString()) + ";";
+                    bdHelper.actualizarBD(query);
+                    actualizarGrillaOT();
+                    Form controlarOT = new frm_Controlar_OT(id_orden_por_controlar);
+                    controlarOT.ShowDialog();
+                }
+            } 
+            if (dataGridView1.SelectedRows[0].Cells["id_estado"].Value.ToString() == "Completada")
+            {
+                MessageBox.Show("Esta OT ya está Completada, no se puede controlar.", "¡Atención!", MessageBoxButtons.OK);
+            }
+            if (dataGridView1.SelectedRows[0].Cells["id_estado"].Value.ToString() == "En Curso" ||
+                dataGridView1.SelectedRows[0].Cells["id_estado"].Value.ToString() == "Confirmada" ||
+                dataGridView1.SelectedRows[0].Cells["id_estado"].Value.ToString() == "Cotizada")
+            {
+                Form controlarOT = new frm_Controlar_OT(id_orden_por_controlar);
+                controlarOT.ShowDialog();
+            }
+            actualizarGrillaOT();
         }
 
         private void button1_Click(object sender, EventArgs e)

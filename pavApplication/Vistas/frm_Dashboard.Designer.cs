@@ -92,7 +92,7 @@
             // 
             // txt_valor
             // 
-            this.txt_valor.Location = new System.Drawing.Point(324, 26);
+            this.txt_valor.Location = new System.Drawing.Point(324, 29);
             this.txt_valor.Name = "txt_valor";
             this.txt_valor.Size = new System.Drawing.Size(336, 22);
             this.txt_valor.TabIndex = 1;

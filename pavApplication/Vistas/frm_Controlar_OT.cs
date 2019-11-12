@@ -48,6 +48,7 @@ namespace pavApplication.Vistas
                     dgv_detalles.Rows.Add(tabla.Rows[i]["id_detalle"],
                                     tabla.Rows[i]["id_maquina"],
                                     tabla.Rows[i]["estado"],
+                                    tabla.Rows[i]["fecha_hora_inicio"],
                                     Int32.Parse(tabla.Rows[i]["duracion_calibracion"].ToString()) + Int32.Parse(tabla.Rows[i]["duracion_trabajo"].ToString()),
                                     tabla.Rows[i]["duracion_real_trabajo"]);
                 }
@@ -72,9 +73,14 @@ namespace pavApplication.Vistas
         {
             if (dgv_detalles.SelectedRows[0].Cells["estado"].Value.ToString() == "En Curso")
             {
-                panel1.Enabled = true;
+                panel1.Enabled = false;
                 btn_completar.Enabled = false;
-                btn_reabrir.Enabled = true;
+                btn_reabrir.Enabled = false;
+                string completarBoletaQuery = "Update detalle_orden SET estado = 'Completada', duracion_real_trabajo = " +
+                    (DateTime.Now - Convert.ToDateTime(dgv_detalles.SelectedRows[0].Cells["fecha_hora_inicio"].Value.ToString())).Seconds + " " +
+                    "WHERE (id_orden_trabajo = " + orden_trabajo_controlando + " AND id_detalle = " + Int32.Parse(dgv_detalles.SelectedRows[0].Cells["id_detalle"].Value.ToString()) + ");";
+                bdHelper.actualizarBD(completarBoletaQuery);
+                actualizarDetalles(orden_trabajo_controlando);
             } else
             {
                 //Avisar que no se puede por el estado que no es el requerido bla bla bla 
