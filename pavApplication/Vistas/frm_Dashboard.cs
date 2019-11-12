@@ -17,6 +17,7 @@ namespace pavApplication.Views
     {
 
         private BDHelper bdHelper = BDHelper.getBDHelper();
+        Int32 id_orden_por_controlar;
 
         public frm_Dashboard()
         {
@@ -107,8 +108,9 @@ namespace pavApplication.Views
 
         private void btn_controlar_Click(object sender, EventArgs e)
         {
-            Form controlarOT = new frm_Controlar_OT();
+            Form controlarOT = new frm_Controlar_OT(id_orden_por_controlar);
             controlarOT.ShowDialog();
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -146,7 +148,8 @@ namespace pavApplication.Views
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            id_orden_por_controlar = Int32.Parse(dataGridView1.SelectedRows[0].Cells["id_orden_trabajo"].Value.ToString());     
+            btn_controlar.Enabled = true;
         }
 
         private void frm_Dashboard_Enter(object sender, EventArgs e)

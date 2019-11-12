@@ -132,6 +132,8 @@ namespace pavApplication.Vistas
 
         private void btn_agregar_detalle_Click(object sender, EventArgs e)
         {
+            DateTime time = DateTime.Now.AddDays(10);
+            string format = "yyyy-MM-dd HH:mm:ss";
             actualizarTablaBoleta();
                 String query = "";
                 if (nmr_cant_piezas.Value == 0 || numericUpDown4.Value == 0 || numericUpDown5.Value == 0 || numericUpDown1.Value == 0 ||
@@ -153,7 +155,7 @@ namespace pavApplication.Vistas
                     + "'" + nmr_cant_piezas.Value + "',"
                     + "'" + numericUpDown4.Value + "',"
                     + "'" + numericUpDown5.Value + "',"
-                    + "'" + DateTime.Now.AddDays(10) + "'," //TODO: FIXEAR ESTO - Agregar el Date Picker
+                    + "'" + time.ToString(format) + "'," 
                     + "'" + "39419585" + "',"       //TODO: FIXEAR ESTO - Ver por qué no funciona
                     + "'" + textBox2.Text + "')";
                     bdHelper.consultarSQL(query);
@@ -163,12 +165,13 @@ namespace pavApplication.Vistas
                     lbl_next_ot.Text = id_orden_trabajo_creando.ToString();
                     textBox1.Text = actualizarPrecioTotal().ToString();
                 }
-                query = "insert into detalle_orden (id_orden_trabajo, descripcion_actividad, duracion_calibracion, duracion_trabajo, " +
+                query = "insert into detalle_orden (id_orden_trabajo, descripcion_actividad, duracion_calibracion, duracion_trabajo, estado," +
                        "id_maquina) values ("
                        + "'" + id_orden_trabajo_creando + "',"
                        + "'" + txt_observaciones.Text + "',"
                        + "'" + numericUpDown2.Text + "',"
                        + "'" + numericUpDown3.Text + "',"
+                       + "'" + "Generada" + "',"
                        + "'" + cmb_maquina.SelectedValue + "')";
                 limpiarCamposBoleta();
                 bdHelper.consultarSQL(query);

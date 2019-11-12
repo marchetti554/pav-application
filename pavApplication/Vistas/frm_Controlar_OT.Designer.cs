@@ -29,6 +29,11 @@
         private void InitializeComponent()
         {
             this.dgv_detalles = new System.Windows.Forms.DataGridView();
+            this.id_detalle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_maquina = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tiempo_estimado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tiempo_real = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lbl_nro_ot = new System.Windows.Forms.Label();
             this.lbl_numero_ot = new System.Windows.Forms.Label();
             this.btn_completar = new System.Windows.Forms.Button();
@@ -49,14 +54,58 @@
             // 
             this.dgv_detalles.AllowUserToAddRows = false;
             this.dgv_detalles.AllowUserToDeleteRows = false;
+            this.dgv_detalles.AllowUserToResizeColumns = false;
+            this.dgv_detalles.AllowUserToResizeRows = false;
             this.dgv_detalles.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_detalles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_detalles.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id_detalle,
+            this.id_maquina,
+            this.estado,
+            this.tiempo_estimado,
+            this.tiempo_real});
             this.dgv_detalles.Location = new System.Drawing.Point(12, 37);
             this.dgv_detalles.MultiSelect = false;
             this.dgv_detalles.Name = "dgv_detalles";
+            this.dgv_detalles.ReadOnly = true;
             this.dgv_detalles.RowTemplate.Height = 24;
+            this.dgv_detalles.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_detalles.Size = new System.Drawing.Size(755, 465);
             this.dgv_detalles.TabIndex = 0;
+            this.dgv_detalles.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_detalles_CellClick);
+            this.dgv_detalles.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_detalles_CellContentClick);
+            this.dgv_detalles.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_detalles_CellMouseClick);
+            this.dgv_detalles.SelectionChanged += new System.EventHandler(this.dgv_detalles_SelectionChanged);
+            // 
+            // id_detalle
+            // 
+            this.id_detalle.HeaderText = "Nro Boleta";
+            this.id_detalle.Name = "id_detalle";
+            this.id_detalle.ReadOnly = true;
+            // 
+            // id_maquina
+            // 
+            this.id_maquina.HeaderText = "ID Maquina";
+            this.id_maquina.Name = "id_maquina";
+            this.id_maquina.ReadOnly = true;
+            // 
+            // estado
+            // 
+            this.estado.HeaderText = "Estado";
+            this.estado.Name = "estado";
+            this.estado.ReadOnly = true;
+            // 
+            // tiempo_estimado
+            // 
+            this.tiempo_estimado.HeaderText = "Tiempo Estimado";
+            this.tiempo_estimado.Name = "tiempo_estimado";
+            this.tiempo_estimado.ReadOnly = true;
+            // 
+            // tiempo_real
+            // 
+            this.tiempo_real.HeaderText = "Tiempo Real";
+            this.tiempo_real.Name = "tiempo_real";
+            this.tiempo_real.ReadOnly = true;
             // 
             // lbl_nro_ot
             // 
@@ -87,6 +136,7 @@
             this.btn_completar.TabIndex = 1;
             this.btn_completar.Text = "Completar Boleta";
             this.btn_completar.UseVisualStyleBackColor = true;
+            this.btn_completar.Click += new System.EventHandler(this.btn_completar_Click);
             // 
             // btn_iniciar
             // 
@@ -96,6 +146,7 @@
             this.btn_iniciar.TabIndex = 0;
             this.btn_iniciar.Text = "Iniciar Boleta";
             this.btn_iniciar.UseVisualStyleBackColor = true;
+            this.btn_iniciar.Click += new System.EventHandler(this.btn_iniciar_Click);
             // 
             // btn_salir
             // 
@@ -170,7 +221,6 @@
             this.panel1.Controls.Add(this.lbl_empleado);
             this.panel1.Controls.Add(this.cmb_empleado);
             this.panel1.Controls.Add(this.lbl_dni);
-            this.panel1.Enabled = false;
             this.panel1.Location = new System.Drawing.Point(781, 37);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(373, 113);
@@ -191,6 +241,7 @@
             this.Controls.Add(this.dgv_detalles);
             this.Name = "frm_Controlar_OT";
             this.Text = "frm_Controlar_OT";
+            this.Load += new System.EventHandler(this.frm_Controlar_OT_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_detalles)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -214,5 +265,10 @@
         private System.Windows.Forms.ComboBox cmb_empleado;
         private System.Windows.Forms.TextBox txt_dni;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_detalle;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_maquina;
+        private System.Windows.Forms.DataGridViewTextBoxColumn estado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tiempo_estimado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tiempo_real;
     }
 }

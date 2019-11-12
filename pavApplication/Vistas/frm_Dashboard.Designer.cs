@@ -31,8 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.txt_valor = new System.Windows.Forms.TextBox();
-            this.lbl_valor = new System.Windows.Forms.Label();
-            this.cmb_filtrar_por = new System.Windows.Forms.ComboBox();
             this.lbl_filtrar_por = new System.Windows.Forms.Label();
             this.lbl_dashboard = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -84,8 +82,6 @@
             // 
             this.panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel1.Controls.Add(this.txt_valor);
-            this.panel1.Controls.Add(this.lbl_valor);
-            this.panel1.Controls.Add(this.cmb_filtrar_por);
             this.panel1.Controls.Add(this.lbl_filtrar_por);
             this.panel1.Controls.Add(this.lbl_dashboard);
             this.panel1.Controls.Add(this.dataGridView1);
@@ -96,37 +92,19 @@
             // 
             // txt_valor
             // 
-            this.txt_valor.Location = new System.Drawing.Point(626, 28);
+            this.txt_valor.Location = new System.Drawing.Point(324, 26);
             this.txt_valor.Name = "txt_valor";
             this.txt_valor.Size = new System.Drawing.Size(336, 22);
             this.txt_valor.TabIndex = 1;
             // 
-            // lbl_valor
-            // 
-            this.lbl_valor.AutoSize = true;
-            this.lbl_valor.Location = new System.Drawing.Point(575, 28);
-            this.lbl_valor.Name = "lbl_valor";
-            this.lbl_valor.Size = new System.Drawing.Size(45, 17);
-            this.lbl_valor.TabIndex = 5;
-            this.lbl_valor.Text = "Valor:";
-            // 
-            // cmb_filtrar_por
-            // 
-            this.cmb_filtrar_por.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmb_filtrar_por.FormattingEnabled = true;
-            this.cmb_filtrar_por.Location = new System.Drawing.Point(324, 26);
-            this.cmb_filtrar_por.Name = "cmb_filtrar_por";
-            this.cmb_filtrar_por.Size = new System.Drawing.Size(233, 24);
-            this.cmb_filtrar_por.TabIndex = 0;
-            // 
             // lbl_filtrar_por
             // 
             this.lbl_filtrar_por.AutoSize = true;
-            this.lbl_filtrar_por.Location = new System.Drawing.Point(245, 28);
+            this.lbl_filtrar_por.Location = new System.Drawing.Point(197, 29);
             this.lbl_filtrar_por.Name = "lbl_filtrar_por";
-            this.lbl_filtrar_por.Size = new System.Drawing.Size(73, 17);
+            this.lbl_filtrar_por.Size = new System.Drawing.Size(121, 17);
             this.lbl_filtrar_por.TabIndex = 3;
-            this.lbl_filtrar_por.Text = "Filtrar por:";
+            this.lbl_filtrar_por.Text = "Filtrar por Estado:";
             // 
             // lbl_dashboard
             // 
@@ -150,12 +128,12 @@
             this.fecha_estimada_entrega,
             this.dni_responsable_cliente,
             this.precio_total});
-            this.dataGridView1.Location = new System.Drawing.Point(23, 65);
+            this.dataGridView1.Location = new System.Drawing.Point(3, 65);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1014, 581);
+            this.dataGridView1.Size = new System.Drawing.Size(1058, 597);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
@@ -504,9 +482,7 @@
         private System.Windows.Forms.Button btn_nueva_ot;
         private System.Windows.Forms.Button btn_eliminar;
         private System.Windows.Forms.Button btn_controlar;
-        private System.Windows.Forms.ComboBox cmb_filtrar_por;
         private System.Windows.Forms.Label lbl_filtrar_por;
-        private System.Windows.Forms.Label lbl_valor;
         private System.Windows.Forms.TextBox txt_valor;
         private System.Windows.Forms.Button btn_clientes_responsables;
         private System.Windows.Forms.Label label2;
