@@ -40,22 +40,6 @@ namespace pavApplication.Utils
             get { return cadenaConexion; }
         }
 
-        /**
-         * Valida que el email ingresado sea correcto.
-         * 
-         */
-        public bool EsMailValido(string emailPorValidar)
-        {
-            try
-            {
-                MailAddress mailPorValidar = new MailAddress(emailPorValidar);
-            } catch(Exception e)
-            {
-                return false;
-            }
-            return true;
-        }
-
         public BDHelper()
         {
             cadenaConexion = @"Data Source=DESKTOP-APONHGI;Initial Catalog=pav-db;Integrated Security=True";

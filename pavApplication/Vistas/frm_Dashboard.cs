@@ -216,7 +216,8 @@ namespace pavApplication.Views
 
         private void button4_Click(object sender, EventArgs e)
         {
-
+            Form reporteForm = new reporteFinalDif();
+            reporteForm.ShowDialog();
         }
     }
 }

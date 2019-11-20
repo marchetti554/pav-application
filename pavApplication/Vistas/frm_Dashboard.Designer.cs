@@ -55,9 +55,7 @@
             this.lbl_ot = new System.Windows.Forms.Label();
             this.btn_nueva_ot = new System.Windows.Forms.Button();
             this._pav_dbDataSet = new pavApplication._pav_dbDataSet();
-            this.pavdbDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ordentrabajoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.orden_trabajoTableAdapter = new pavApplication._pav_dbDataSetTableAdapters.orden_trabajoTableAdapter();
             this.ordenDeTrabajoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.nuevaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.controlarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -69,13 +67,14 @@
             this.modificarPerfilToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lbl_user_logged = new System.Windows.Forms.Label();
             this.lbl_nmb_usuario = new System.Windows.Forms.Label();
+            this.pavdbDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._pav_dbDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pavdbDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ordentrabajoBindingSource)).BeginInit();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pavdbDataSetBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -329,19 +328,10 @@
             this._pav_dbDataSet.DataSetName = "_pav_dbDataSet";
             this._pav_dbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // pavdbDataSetBindingSource
-            // 
-            this.pavdbDataSetBindingSource.DataSource = this._pav_dbDataSet;
-            this.pavdbDataSetBindingSource.Position = 0;
-            // 
             // ordentrabajoBindingSource
             // 
             this.ordentrabajoBindingSource.DataMember = "orden_trabajo";
             this.ordentrabajoBindingSource.DataSource = this.pavdbDataSetBindingSource;
-            // 
-            // orden_trabajoTableAdapter
-            // 
-            this.orden_trabajoTableAdapter.ClearBeforeFill = true;
             // 
             // ordenDeTrabajoToolStripMenuItem1
             // 
@@ -434,6 +424,11 @@
             this.lbl_nmb_usuario.Text = "nombreUsuario";
             this.lbl_nmb_usuario.Click += new System.EventHandler(this.lbl_nmb_usuario_Click);
             // 
+            // pavdbDataSetBindingSource
+            // 
+            this.pavdbDataSetBindingSource.DataSource = this._pav_dbDataSet;
+            this.pavdbDataSetBindingSource.Position = 0;
+            // 
             // frm_Dashboard
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
@@ -461,10 +456,10 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this._pav_dbDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pavdbDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ordentrabajoBindingSource)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pavdbDataSetBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -478,7 +473,6 @@
         private System.Windows.Forms.BindingSource pavdbDataSetBindingSource;
         private _pav_dbDataSet _pav_dbDataSet;
         private System.Windows.Forms.BindingSource ordentrabajoBindingSource;
-        private _pav_dbDataSetTableAdapters.orden_trabajoTableAdapter orden_trabajoTableAdapter;
         private System.Windows.Forms.Label lbl_dashboard;
         private System.Windows.Forms.Button btn_nueva_ot;
         private System.Windows.Forms.Button btn_eliminar;
