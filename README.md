@@ -8,8 +8,8 @@ Curso: 3K5
 Integrante: Marco Marchetti
 Legajo: 67559
 
-# Empresa: Methfarbi
-# Rubro: Metalurgica
+## Empresa: Methfarbi
+Rubro: Metalurgica
 
 # Descripción:
 Metfarbi es una fábrica metalúrgica dedicada a la producción de piezas a medida. El proceso comienza cuando un cliente solicita un pedido de piezas, a lo que se procede a crear una Orden de Trabajo en estado Generada, indicando sus detalles, los cuales señalan por qué máquinas tendrán que pasar las piezas durante su producción, durante cuanto tiempo estimado de trabajo, y también, el tiempo de calibración estimado. Una vez creada la Orden de Trabajo se calcula el precio total estimado y se le informa al cliente, si este acepta, la OT pasa a Cotizada y ya está lista para que empiece el proceso de producción. A medida que los operarios vayan terminando los trabajos (detalles de OT) se irá actualizando la Orden de Trabajo, y así sucesivamente hasta que se finalicen todos sus detalles, por lo cual, la OT pasa  Finalizada. 
@@ -19,16 +19,16 @@ Los alcances del sistema irán desde la creación de una Orden de Trabajo junto 
 
 # Transacción principal:
 
-Orden de Trabajo 
+1. Orden de Trabajo 
 
 # ABMs:
 
-Maquinas
-Empleados
-Responsables de Empresas
-Clientes
+1. Maquinas
+2. Empleados
+3. Responsables de Empresas
+4. Clientes
 
 # Reportes:
 
-Reporte de diferencia entre horas estimadas y horas reales de trabajo.
-Reporte de utilización por horas de máquinas.
+1. Reporte de diferencia entre horas estimadas y horas reales de trabajo.
+2. Reporte de utilización por horas de máquinas.
