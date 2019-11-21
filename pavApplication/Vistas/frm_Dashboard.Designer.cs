@@ -30,8 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.txt_valor = new System.Windows.Forms.TextBox();
-            this.lbl_filtrar_por = new System.Windows.Forms.Label();
             this.lbl_dashboard = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.id_orden_trabajo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -41,13 +39,11 @@
             this.precio_total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.btn_clientes_responsables = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.btn_eliminar = new System.Windows.Forms.Button();
@@ -56,6 +52,7 @@
             this.btn_nueva_ot = new System.Windows.Forms.Button();
             this._pav_dbDataSet = new pavApplication._pav_dbDataSet();
             this.ordentrabajoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.pavdbDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ordenDeTrabajoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.nuevaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.controlarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -67,43 +64,25 @@
             this.modificarPerfilToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lbl_user_logged = new System.Windows.Forms.Label();
             this.lbl_nmb_usuario = new System.Windows.Forms.Label();
-            this.pavdbDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._pav_dbDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ordentrabajoBindingSource)).BeginInit();
-            this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pavdbDataSetBindingSource)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.panel1.Controls.Add(this.txt_valor);
-            this.panel1.Controls.Add(this.lbl_filtrar_por);
             this.panel1.Controls.Add(this.lbl_dashboard);
             this.panel1.Controls.Add(this.dataGridView1);
             this.panel1.Location = new System.Drawing.Point(266, 44);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1064, 665);
             this.panel1.TabIndex = 1;
-            // 
-            // txt_valor
-            // 
-            this.txt_valor.Location = new System.Drawing.Point(324, 29);
-            this.txt_valor.Name = "txt_valor";
-            this.txt_valor.Size = new System.Drawing.Size(336, 22);
-            this.txt_valor.TabIndex = 1;
-            // 
-            // lbl_filtrar_por
-            // 
-            this.lbl_filtrar_por.AutoSize = true;
-            this.lbl_filtrar_por.Location = new System.Drawing.Point(197, 29);
-            this.lbl_filtrar_por.Name = "lbl_filtrar_por";
-            this.lbl_filtrar_por.Size = new System.Drawing.Size(121, 17);
-            this.lbl_filtrar_por.TabIndex = 3;
-            this.lbl_filtrar_por.Text = "Filtrar por Estado:";
             // 
             // lbl_dashboard
             // 
@@ -166,13 +145,11 @@
             // 
             this.panel2.AutoSize = true;
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.button2);
             this.panel2.Controls.Add(this.button8);
             this.panel2.Controls.Add(this.button7);
             this.panel2.Controls.Add(this.button6);
             this.panel2.Controls.Add(this.button5);
             this.panel2.Controls.Add(this.button4);
-            this.panel2.Controls.Add(this.button3);
             this.panel2.Controls.Add(this.btn_clientes_responsables);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.btn_eliminar);
@@ -188,25 +165,16 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(79, 472);
+            this.label1.Location = new System.Drawing.Point(79, 463);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(57, 17);
             this.label1.TabIndex = 20;
             this.label1.Text = "Sesión";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(18, 549);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(179, 37);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "Cambiar usuario";
-            this.button2.UseVisualStyleBackColor = false;
-            // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(19, 595);
+            this.button8.Location = new System.Drawing.Point(18, 549);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(179, 37);
             this.button8.TabIndex = 10;
@@ -216,16 +184,17 @@
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(18, 503);
+            this.button7.Location = new System.Drawing.Point(18, 502);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(179, 37);
             this.button7.TabIndex = 8;
             this.button7.Text = "Cerrar sesión";
             this.button7.UseVisualStyleBackColor = false;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(18, 400);
+            this.button6.Location = new System.Drawing.Point(18, 396);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(179, 37);
             this.button6.TabIndex = 7;
@@ -234,7 +203,7 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(18, 314);
+            this.button5.Location = new System.Drawing.Point(18, 291);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(179, 37);
             this.button5.TabIndex = 5;
@@ -244,7 +213,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(18, 357);
+            this.button4.Location = new System.Drawing.Point(18, 341);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(179, 37);
             this.button4.TabIndex = 6;
@@ -252,18 +221,9 @@
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(18, 271);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(179, 37);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "Maquinas";
-            this.button3.UseVisualStyleBackColor = false;
-            // 
             // btn_clientes_responsables
             // 
-            this.btn_clientes_responsables.Location = new System.Drawing.Point(18, 228);
+            this.btn_clientes_responsables.Location = new System.Drawing.Point(18, 236);
             this.btn_clientes_responsables.Name = "btn_clientes_responsables";
             this.btn_clientes_responsables.Size = new System.Drawing.Size(179, 37);
             this.btn_clientes_responsables.TabIndex = 3;
@@ -275,7 +235,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(70, 195);
+            this.label2.Location = new System.Drawing.Point(70, 202);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(76, 17);
             this.label2.TabIndex = 6;
@@ -284,17 +244,17 @@
             // btn_eliminar
             // 
             this.btn_eliminar.Enabled = false;
-            this.btn_eliminar.Location = new System.Drawing.Point(25, 136);
+            this.btn_eliminar.Location = new System.Drawing.Point(25, 149);
             this.btn_eliminar.Name = "btn_eliminar";
             this.btn_eliminar.Size = new System.Drawing.Size(168, 35);
             this.btn_eliminar.TabIndex = 2;
             this.btn_eliminar.Text = "Eliminar";
             this.btn_eliminar.UseVisualStyleBackColor = false;
-            this.btn_eliminar.Click += new System.EventHandler(this.button3_Click);
+            this.btn_eliminar.Click += new System.EventHandler(this.btn_eliminar_Click);
             // 
             // btn_controlar
             // 
-            this.btn_controlar.Location = new System.Drawing.Point(25, 95);
+            this.btn_controlar.Location = new System.Drawing.Point(25, 101);
             this.btn_controlar.Name = "btn_controlar";
             this.btn_controlar.Size = new System.Drawing.Size(168, 35);
             this.btn_controlar.TabIndex = 1;
@@ -332,6 +292,11 @@
             // 
             this.ordentrabajoBindingSource.DataMember = "orden_trabajo";
             this.ordentrabajoBindingSource.DataSource = this.pavdbDataSetBindingSource;
+            // 
+            // pavdbDataSetBindingSource
+            // 
+            this.pavdbDataSetBindingSource.DataSource = this._pav_dbDataSet;
+            this.pavdbDataSetBindingSource.Position = 0;
             // 
             // ordenDeTrabajoToolStripMenuItem1
             // 
@@ -424,10 +389,17 @@
             this.lbl_nmb_usuario.Text = "nombreUsuario";
             this.lbl_nmb_usuario.Click += new System.EventHandler(this.lbl_nmb_usuario_Click);
             // 
-            // pavdbDataSetBindingSource
+            // label3
             // 
-            this.pavdbDataSetBindingSource.DataSource = this._pav_dbDataSet;
-            this.pavdbDataSetBindingSource.Position = 0;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Red;
+            this.label3.Location = new System.Drawing.Point(544, 13);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(327, 18);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Permisos especiales - Solo para reportes.";
+            this.label3.Visible = false;
             // 
             // frm_Dashboard
             // 
@@ -435,6 +407,7 @@
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1342, 721);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.lbl_nmb_usuario);
             this.Controls.Add(this.lbl_user_logged);
             this.Controls.Add(this.panel2);
@@ -457,9 +430,9 @@
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this._pav_dbDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ordentrabajoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pavdbDataSetBindingSource)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pavdbDataSetBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -477,8 +450,6 @@
         private System.Windows.Forms.Button btn_nueva_ot;
         private System.Windows.Forms.Button btn_eliminar;
         private System.Windows.Forms.Button btn_controlar;
-        private System.Windows.Forms.Label lbl_filtrar_por;
-        private System.Windows.Forms.TextBox txt_valor;
         private System.Windows.Forms.Button btn_clientes_responsables;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ToolStripMenuItem ordenDeTrabajoToolStripMenuItem1;
@@ -497,13 +468,12 @@
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_orden_trabajo;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_estado;
         private System.Windows.Forms.DataGridViewTextBoxColumn fecha_estimada_entrega;
         private System.Windows.Forms.DataGridViewTextBoxColumn dni_responsable_cliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn precio_total;
+        private System.Windows.Forms.Label label3;
     }
 }

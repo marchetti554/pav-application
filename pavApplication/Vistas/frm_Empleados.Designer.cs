@@ -43,23 +43,18 @@ namespace pavApplication.Views
             this._pav_dbDataSet = new pavApplication._pav_dbDataSet();
             this.pavdbDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.empleadosTableAdapter = new pavApplication._pav_dbDataSetTableAdapters.empleadosTableAdapter();
-            this.btn_Buscar = new System.Windows.Forms.Button();
             this.txt_email = new System.Windows.Forms.TextBox();
             this.txt_telefono = new System.Windows.Forms.TextBox();
             this.txt_domicilio = new System.Windows.Forms.TextBox();
             this.txt_apellido = new System.Windows.Forms.TextBox();
             this.txt_nombre = new System.Windows.Forms.TextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.btn_agregar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.btn_modificar = new System.Windows.Forms.Button();
             this.btn_eliminar = new System.Windows.Forms.Button();
             this.empleadosBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
@@ -87,13 +82,13 @@ namespace pavApplication.Views
             this.email,
             this.telefono,
             this.domicilio});
-            this.dgv_empleados.Location = new System.Drawing.Point(284, 84);
+            this.dgv_empleados.Location = new System.Drawing.Point(284, 44);
             this.dgv_empleados.MultiSelect = false;
             this.dgv_empleados.Name = "dgv_empleados";
             this.dgv_empleados.ReadOnly = true;
             this.dgv_empleados.RowTemplate.Height = 24;
             this.dgv_empleados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_empleados.Size = new System.Drawing.Size(976, 355);
+            this.dgv_empleados.Size = new System.Drawing.Size(976, 395);
             this.dgv_empleados.TabIndex = 18;
             this.dgv_empleados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_empleados_CellContentClick);
             // 
@@ -152,15 +147,6 @@ namespace pavApplication.Views
             // 
             this.empleadosTableAdapter.ClearBeforeFill = true;
             // 
-            // btn_Buscar
-            // 
-            this.btn_Buscar.Location = new System.Drawing.Point(1080, 35);
-            this.btn_Buscar.Name = "btn_Buscar";
-            this.btn_Buscar.Size = new System.Drawing.Size(125, 42);
-            this.btn_Buscar.TabIndex = 11;
-            this.btn_Buscar.Text = "Buscar";
-            this.btn_Buscar.UseVisualStyleBackColor = true;
-            // 
             // txt_email
             // 
             this.txt_email.Location = new System.Drawing.Point(12, 148);
@@ -206,36 +192,10 @@ namespace pavApplication.Views
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1272, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1272, 28);
             this.menuStrip1.TabIndex = 11;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
-            // 
-            // textBox7
-            // 
-            this.textBox7.Location = new System.Drawing.Point(549, 44);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(407, 22);
-            this.textBox7.TabIndex = 10;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(281, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(81, 17);
-            this.label1.TabIndex = 13;
-            this.label1.Text = "Buscar por:";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(284, 44);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(172, 24);
-            this.comboBox1.TabIndex = 9;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // btn_agregar
             // 
@@ -291,15 +251,6 @@ namespace pavApplication.Views
             this.label6.Size = new System.Drawing.Size(68, 17);
             this.label6.TabIndex = 21;
             this.label6.Text = "Domicilio:";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(546, 22);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(45, 17);
-            this.label7.TabIndex = 22;
-            this.label7.Text = "Valor:";
             // 
             // btn_modificar
             // 
@@ -360,22 +311,17 @@ namespace pavApplication.Views
             this.Controls.Add(this.btn_nuevo);
             this.Controls.Add(this.btn_eliminar);
             this.Controls.Add(this.btn_modificar);
-            this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btn_agregar);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox7);
             this.Controls.Add(this.txt_nombre);
             this.Controls.Add(this.txt_apellido);
             this.Controls.Add(this.txt_domicilio);
             this.Controls.Add(this.txt_telefono);
             this.Controls.Add(this.txt_email);
-            this.Controls.Add(this.btn_Buscar);
             this.Controls.Add(this.dgv_empleados);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -401,23 +347,18 @@ namespace pavApplication.Views
         private _pav_dbDataSet _pav_dbDataSet;
         private System.Windows.Forms.BindingSource empleadosBindingSource;
         private _pav_dbDataSetTableAdapters.empleadosTableAdapter empleadosTableAdapter;
-        private System.Windows.Forms.Button btn_Buscar;
         private System.Windows.Forms.TextBox txt_email;
         private System.Windows.Forms.TextBox txt_telefono;
         private System.Windows.Forms.TextBox txt_domicilio;
         private System.Windows.Forms.TextBox txt_apellido;
         private System.Windows.Forms.TextBox txt_nombre;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button btn_agregar;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btn_modificar;
         private System.Windows.Forms.Button btn_eliminar;
         private System.Windows.Forms.DataGridViewTextBoxColumn legajo_empleado;

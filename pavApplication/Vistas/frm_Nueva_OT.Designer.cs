@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.btn_salir = new System.Windows.Forms.Button();
             this.btn_agregar_detalle = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.lbl_desc_detalle = new System.Windows.Forms.Label();
             this.dgv_detalles = new System.Windows.Forms.DataGridView();
             this.id_detalle = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -117,20 +116,11 @@
             // 
             this.btn_agregar_detalle.Location = new System.Drawing.Point(1080, 39);
             this.btn_agregar_detalle.Name = "btn_agregar_detalle";
-            this.btn_agregar_detalle.Size = new System.Drawing.Size(296, 45);
+            this.btn_agregar_detalle.Size = new System.Drawing.Size(296, 71);
             this.btn_agregar_detalle.TabIndex = 14;
             this.btn_agregar_detalle.Text = "Agregar Boleta";
             this.btn_agregar_detalle.UseVisualStyleBackColor = true;
             this.btn_agregar_detalle.Click += new System.EventHandler(this.btn_agregar_detalle_Click);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(1081, 90);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(295, 49);
-            this.button1.TabIndex = 15;
-            this.button1.Text = "Borrar Boleta";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // lbl_desc_detalle
             // 
@@ -400,9 +390,9 @@
             // 
             // btn_crear_ot
             // 
-            this.btn_crear_ot.Location = new System.Drawing.Point(1082, 145);
+            this.btn_crear_ot.Location = new System.Drawing.Point(1082, 117);
             this.btn_crear_ot.Name = "btn_crear_ot";
-            this.btn_crear_ot.Size = new System.Drawing.Size(295, 48);
+            this.btn_crear_ot.Size = new System.Drawing.Size(295, 76);
             this.btn_crear_ot.TabIndex = 16;
             this.btn_crear_ot.Text = "Crear Orden de Trabajo";
             this.btn_crear_ot.UseVisualStyleBackColor = true;
@@ -616,7 +606,6 @@
             this.Controls.Add(this.lbl_next_ot);
             this.Controls.Add(this.lbl_nro_ot);
             this.Controls.Add(this.dgv_detalles);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.btn_agregar_detalle);
             this.Controls.Add(this.btn_salir);
             this.Name = "frm_Nueva_OT";
@@ -651,7 +640,6 @@
 
         private System.Windows.Forms.Button btn_salir;
         private System.Windows.Forms.Button btn_agregar_detalle;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label lbl_desc_detalle;
         private System.Windows.Forms.DataGridView dgv_detalles;
         private System.Windows.Forms.ComboBox cmb_cliente;

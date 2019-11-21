@@ -29,6 +29,7 @@ namespace pavApplication.Vistas
             cargarComboCliente();
             cargarComboResponsable();
             empezarTransactionNuevaOT();
+            btn_crear_ot.Enabled = false;
         }
 
         private void empezarTransactionNuevaOT()
@@ -161,7 +162,7 @@ namespace pavApplication.Vistas
                     + "'" + numericUpDown4.Value + "',"
                     + "'" + numericUpDown5.Value + "',"
                     + "'" + time.ToString(format) + "'," 
-                    + "'" + "39419585" + "',"       //TODO: FIXEAR ESTO - Ver por qué no funciona
+                    + "'" + Int32.Parse(cmb_responsable.SelectedValue.ToString()) + "',"       //TODO: FIXEAR ESTO - Ver por qué no funciona
                     + "'" + textBox2.Text + "')";
                     bdHelper.consultarSQL(query);
                     precioHoraTrabajo = numericUpDown4.Value;
@@ -186,6 +187,7 @@ namespace pavApplication.Vistas
                 panel1.Enabled = true;
                 actualizarPrecioTotal();
                 textBox1.Text = actualizarPrecioTotal().ToString();
+                btn_crear_ot.Enabled = true;
             }
         }
 
@@ -284,5 +286,6 @@ namespace pavApplication.Vistas
         {
 
         }
+
     }
 }

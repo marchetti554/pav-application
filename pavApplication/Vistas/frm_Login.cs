@@ -31,27 +31,41 @@ namespace pavApplication.Vistas
             }
             else
             {
-                    query = "select * from usuarios where nombre_usuario = '" + txt_user.Text + "'";
-                    DataTable tablaUsuario = bdHelper.consultarSQL(query);
+                query = "select * from usuarios where nombre_usuario = '" + txt_user.Text + "'";
+                DataTable tablaUsuario = bdHelper.consultarSQL(query);
+                if(tablaUsuario.Rows.Count != 0)
+                {
                     if (tablaUsuario.Rows[0]["password"].ToString() == txt_pass.Text)
                     {
                         Constants.UsuarioLogueado = txt_user.Text;
-                     Form dashboard = new frm_Dashboard();
-                    dashboard.FormClosed += new FormClosedEventHandler(dashboard_FormClosed);
-                    dashboard.Show();
-                    this.Hide();
-                }
+                        Form dashboard = new frm_Dashboard();
+                        dashboard.FormClosed += new FormClosedEventHandler(dashboard_FormClosed);
+                        dashboard.Show();
+                        this.Hide();
+                    }
                     else
                     {
                         MessageBox.Show("El usuario no existe o la contraseña no es la correcta.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                          
+                } else
+                {
+                    MessageBox.Show("El usuario no existe o la contraseña no es la correcta.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
             }
         }
 
         private void dashboard_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("¿Está seguro que desea cerrar el programa?.", "¡Atención!", MessageBoxButtons.YesNoCancel) == DialogResult.Yes)
+            {
+                this.Close();
+            }
         }
     }
 }

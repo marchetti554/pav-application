@@ -91,7 +91,14 @@ namespace pavApplication.Utils
 
         public void finalizarTransaction()
         {
-            transaccion.Rollback();
+            try
+            {
+                transaccion.Rollback();
+            } catch
+            {
+
+            }
+
         }
 
         public void startTransaction()

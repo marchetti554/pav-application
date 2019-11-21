@@ -29,42 +29,60 @@ namespace pavApplication.Views
         {
             btn_nueva_ot.Focus();
             lbl_nmb_usuario.Text = Constants.UsuarioLogueado;
+            if(lbl_nmb_usuario.Text != "marcouser")
+            {
+                activarModoSinPermiso();
+            }
+        }
+
+        private void activarModoSinPermiso()
+        {
+            dataGridView1.Enabled = false;
+            label3.Visible = true;
+            btn_clientes_responsables.Enabled = false;
+            btn_controlar.Enabled = false;
+            btn_eliminar.Enabled = false;
+            btn_nueva_ot.Enabled = false;
+            button5.Enabled = false;
+            button6.Enabled = false;
         }
 
         private void actualizarGrillaOT()
         {
             dataGridView1.Rows.Clear();
-            DataTable tabla = bdHelper.consultarTabla("orden_trabajo");
+            DataTable tabla = bdHelper.consultarSQL("SELECT * FROM Estado JOIN orden_trabajo ON(orden_trabajo.id_estado = estado.id_estado)");
             if (tabla.Rows.Count > 0)
             {
                 for (int i = 0; i < tabla.Rows.Count; i++)
                 {
                     int orden_trabajo_cargando = Int32.Parse(tabla.Rows[i]["id_orden_trabajo"].ToString());
-                    DataTable estado = bdHelper.consultarSQL("Select * from Estado where id_estado = "
-                        + tabla.Rows[i]["id_estado"]);
                     DataTable boletasEnCurso = bdHelper.consultarSQL("Select * From detalle_orden WHERE (id_orden_trabajo = " + orden_trabajo_cargando +
                         " AND estado = 'En Curso');");
                     int cantidadBoletasEnCurso = boletasEnCurso.Rows.Count;
 
                     dataGridView1.Rows.Add(tabla.Rows[i]["id_orden_trabajo"],
-                                    cantidadBoletasEnCurso == 0 ? traducirEstado(tabla.Rows[i]["id_estado"]) : "En Curso",
+                                    cantidadBoletasEnCurso == 0 ? tabla.Rows[i]["nombre"] : "En Curso",
                                     tabla.Rows[i]["fecha_estimada_entrega"],
                                     tabla.Rows[i]["dni_responsable_cliente"],
                                     tabla.Rows[i]["precio_total"]);
 
-                    if (Int32.Parse(tabla.Rows[i]["id_estado"].ToString()) == 1)
+                    if (tabla.Rows[i]["id_estado"].ToString() == "1")
                     {
                         dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.LightSeaGreen;
                     }
-                    if (Int32.Parse(tabla.Rows[i]["id_estado"].ToString()) == 2)
+                    if (tabla.Rows[i]["id_estado"].ToString() == "2")
                     {
                         dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.Green;
                     }
-                    if (Int32.Parse(tabla.Rows[i]["id_estado"].ToString()) == 4)
+                    if (tabla.Rows[i]["id_estado"].ToString() == "4")
                     {
                         dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.GreenYellow;
                     }
-                    if (Int32.Parse(tabla.Rows[i]["id_estado"].ToString()) == 5)
+                    if (tabla.Rows[i]["id_estado"].ToString() == "5")
+                    {
+                        dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.LightGreen;
+                    }
+                    if (cantidadBoletasEnCurso != 0)
                     {
                         dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.LightGreen;
                     }
@@ -72,26 +90,38 @@ namespace pavApplication.Views
             }
         }
 
-        private object traducirEstado(object estado)
+        private void btn_eliminar_Click(object sender, EventArgs e)
         {
-            if((int) estado == 5)
+            if (dataGridView1.SelectedRows.Count != 0)
             {
-                return "Confirmada";
+                if (MessageBox.Show("Está por eliminar una Orden de Trabajo ¿está seguro de querer continuar?", "¡Atención!", MessageBoxButtons.YesNoCancel) == DialogResult.Yes)
+                {
+                    String query = "update orden_trabajo SET esta_eliminada = 1 WHERE id_orden_trabajo = "
+                        + Int32.Parse(dataGridView1.SelectedRows[0].Cells["id_orden_trabajo"].Value.ToString()) + ";";
+                    bdHelper.actualizarBD(query);
+                    actualizarGrillaOT();
+                    Form controlarOT = new frm_Controlar_OT(id_orden_por_controlar);
+                    controlarOT.ShowDialog();
+                }
             }
-            if ((int)estado == 1)
+            else
             {
-                return "Generada";
+                if (dataGridView1.SelectedRows[0].Cells["id_estado"].Value.ToString() == "En Curso" ||
+                    dataGridView1.SelectedRows[0].Cells["id_estado"].Value.ToString() == "Confirmada" ||
+                    dataGridView1.SelectedRows[0].Cells["id_estado"].Value.ToString() == "Cotizada")
+                {
+                    Form controlarOT = new frm_Controlar_OT(id_orden_por_controlar);
+                    controlarOT.ShowDialog();
+                }
+                else
+                {
+                    if (dataGridView1.SelectedRows[0].Cells["id_estado"].Value.ToString() == "Completada")
+                    {
+                        MessageBox.Show("Esta OT ya está Completada, no se puede controlar.", "¡Atención!", MessageBoxButtons.OK);
+                    }
+                }
             }
-            if ((int)estado == 2)
-            {
-                return "Completada";
-            }
-            return "En Curso";
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-
+            actualizarGrillaOT();
         }
 
         private void ordenDeTrabajoToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -144,17 +174,22 @@ namespace pavApplication.Views
                     Form controlarOT = new frm_Controlar_OT(id_orden_por_controlar);
                     controlarOT.ShowDialog();
                 }
-            } 
-            if (dataGridView1.SelectedRows[0].Cells["id_estado"].Value.ToString() == "Completada")
+            } else
             {
-                MessageBox.Show("Esta OT ya está Completada, no se puede controlar.", "¡Atención!", MessageBoxButtons.OK);
-            }
-            if (dataGridView1.SelectedRows[0].Cells["id_estado"].Value.ToString() == "En Curso" ||
-                dataGridView1.SelectedRows[0].Cells["id_estado"].Value.ToString() == "Confirmada" ||
-                dataGridView1.SelectedRows[0].Cells["id_estado"].Value.ToString() == "Cotizada")
-            {
-                Form controlarOT = new frm_Controlar_OT(id_orden_por_controlar);
-                controlarOT.ShowDialog();
+                if (dataGridView1.SelectedRows[0].Cells["id_estado"].Value.ToString() == "En Curso" ||
+                    dataGridView1.SelectedRows[0].Cells["id_estado"].Value.ToString() == "Confirmada" ||
+                    dataGridView1.SelectedRows[0].Cells["id_estado"].Value.ToString() == "Cotizada")
+                {
+                    Form controlarOT = new frm_Controlar_OT(id_orden_por_controlar);
+                    controlarOT.ShowDialog();
+                }
+                else
+                {
+                    if (dataGridView1.SelectedRows[0].Cells["id_estado"].Value.ToString() == "Completada")
+                    {
+                        MessageBox.Show("Esta OT ya está Completada, no se puede controlar.", "¡Atención!", MessageBoxButtons.OK);
+                    }
+                }
             }
             actualizarGrillaOT();
         }
@@ -189,7 +224,10 @@ namespace pavApplication.Views
 
         private void button8_Click(object sender, EventArgs e)
         {
-            this.Close();
+            if (MessageBox.Show("¿Está seguro que desea cerrar el programa?.", "¡Atención!", MessageBoxButtons.YesNoCancel) == DialogResult.Yes)
+            {
+                this.Close();
+            }
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -216,8 +254,24 @@ namespace pavApplication.Views
 
         private void button4_Click(object sender, EventArgs e)
         {
-            Form reporteForm = new reporteFinalDif();
+            Form reporteForm = new frm_SeleccionarReporte();
             reporteForm.ShowDialog();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("¿Está seguro que desea cerrar sesión?.", "¡Atención!", MessageBoxButtons.YesNoCancel) == DialogResult.Yes)
+            {
+                Form login = new frm_Login();
+                login.FormClosed += new FormClosedEventHandler(login_FormClosed);
+                login.Show();
+                this.Hide();
+            }
+        }
+
+        private void login_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

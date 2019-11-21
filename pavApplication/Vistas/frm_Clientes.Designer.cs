@@ -44,14 +44,6 @@ namespace pavApplication.Views
             this.id_cliente_1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lbl_clientes = new System.Windows.Forms.Label();
             this.lbl_responsable = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.cmb_buscarRes = new System.Windows.Forms.ComboBox();
-            this.cmb_clientes = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txt_responsables = new System.Windows.Forms.TextBox();
-            this.txt_clientes = new System.Windows.Forms.TextBox();
             this.panel_clientes = new System.Windows.Forms.Panel();
             this.btn_eliminar_cliente = new System.Windows.Forms.Button();
             this.btn_modificar_cliente = new System.Windows.Forms.Button();
@@ -212,72 +204,6 @@ namespace pavApplication.Views
             this.lbl_responsable.Size = new System.Drawing.Size(205, 36);
             this.lbl_responsable.TabIndex = 3;
             this.lbl_responsable.Text = "Responsables";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(291, 394);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(81, 17);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Buscar por:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(291, 33);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(81, 17);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Buscar por:";
-            // 
-            // cmb_buscarRes
-            // 
-            this.cmb_buscarRes.FormattingEnabled = true;
-            this.cmb_buscarRes.Location = new System.Drawing.Point(378, 391);
-            this.cmb_buscarRes.Name = "cmb_buscarRes";
-            this.cmb_buscarRes.Size = new System.Drawing.Size(204, 24);
-            this.cmb_buscarRes.TabIndex = 2;
-            // 
-            // cmb_clientes
-            // 
-            this.cmb_clientes.FormattingEnabled = true;
-            this.cmb_clientes.Location = new System.Drawing.Point(378, 31);
-            this.cmb_clientes.Name = "cmb_clientes";
-            this.cmb_clientes.Size = new System.Drawing.Size(204, 24);
-            this.cmb_clientes.TabIndex = 0;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(626, 394);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(45, 17);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Valor:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(636, 35);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(45, 17);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "Valor:";
-            // 
-            // txt_responsables
-            // 
-            this.txt_responsables.Location = new System.Drawing.Point(687, 394);
-            this.txt_responsables.Name = "txt_responsables";
-            this.txt_responsables.Size = new System.Drawing.Size(281, 22);
-            this.txt_responsables.TabIndex = 3;
-            // 
-            // txt_clientes
-            // 
-            this.txt_clientes.Location = new System.Drawing.Point(687, 33);
-            this.txt_clientes.Name = "txt_clientes";
-            this.txt_clientes.Size = new System.Drawing.Size(281, 22);
-            this.txt_clientes.TabIndex = 1;
             // 
             // panel_clientes
             // 
@@ -569,14 +495,6 @@ namespace pavApplication.Views
             this.Controls.Add(this.btn_salir);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel_clientes);
-            this.Controls.Add(this.txt_clientes);
-            this.Controls.Add(this.txt_responsables);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.cmb_clientes);
-            this.Controls.Add(this.cmb_buscarRes);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.lbl_responsable);
             this.Controls.Add(this.lbl_clientes);
             this.Controls.Add(this.dgv_responsables);
@@ -604,14 +522,6 @@ namespace pavApplication.Views
         private System.Windows.Forms.DataGridView dgv_responsables;
         private System.Windows.Forms.Label lbl_clientes;
         private System.Windows.Forms.Label lbl_responsable;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox cmb_buscarRes;
-        private System.Windows.Forms.ComboBox cmb_clientes;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txt_responsables;
-        private System.Windows.Forms.TextBox txt_clientes;
         private System.Windows.Forms.Panel panel_clientes;
         private System.Windows.Forms.Label lbl_razon_social;
         private System.Windows.Forms.Button btn_eliminar_cliente;

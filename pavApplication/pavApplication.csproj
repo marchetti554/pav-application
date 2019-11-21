@@ -60,6 +60,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="dataParaSegundoReporte.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dataParaSegundoReporte.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Datos\BDHelper.cs" />
     <Compile Include="Datos\Constants.cs" />
     <Compile Include="ordenesCompletadas.cs">
@@ -77,6 +82,12 @@
     </Compile>
     <Compile Include="reporteFinalDif.Designer.cs">
       <DependentUpon>reporteFinalDif.cs</DependentUpon>
+    </Compile>
+    <Compile Include="reporteFinalMaq.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="reporteFinalMaq.Designer.cs">
+      <DependentUpon>reporteFinalMaq.cs</DependentUpon>
     </Compile>
     <Compile Include="Vistas\frm_Clientes.cs">
       <SubType>Form</SubType>
@@ -114,6 +125,12 @@
     <Compile Include="Vistas\frm_Nueva_OT.Designer.cs">
       <DependentUpon>frm_Nueva_OT.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vistas\frm_SeleccionarReporte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\frm_SeleccionarReporte.Designer.cs">
+      <DependentUpon>frm_SeleccionarReporte.cs</DependentUpon>
+    </Compile>
     <Compile Include="_pav_dbDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -125,6 +142,7 @@
       <DependentUpon>_pav_dbDataSet1.xsd</DependentUpon>
     </Compile>
     <EmbeddedResource Include="informeDiferenciaFinal.rdlc" />
+    <EmbeddedResource Include="informeFinalMaquina.rdlc" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -136,6 +154,9 @@
     </Compile>
     <EmbeddedResource Include="reporteFinalDif.resx">
       <DependentUpon>reporteFinalDif.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reporteFinalMaq.resx">
+      <DependentUpon>reporteFinalMaq.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\frm_Clientes.resx">
       <DependentUpon>frm_Clientes.cs</DependentUpon>
@@ -155,6 +176,20 @@
     <EmbeddedResource Include="Vistas\frm_Nueva_OT.resx">
       <DependentUpon>frm_Nueva_OT.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\frm_SeleccionarReporte.resx">
+      <DependentUpon>frm_SeleccionarReporte.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="dataParaSegundoReporte.xsc">
+      <DependentUpon>dataParaSegundoReporte.xsd</DependentUpon>
+    </None>
+    <None Include="dataParaSegundoReporte.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dataParaSegundoReporte.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dataParaSegundoReporte.xss">
+      <DependentUpon>dataParaSegundoReporte.xsd</DependentUpon>
+    </None>
     <None Include="ordenesCompletadas.xsc">
       <DependentUpon>ordenesCompletadas.xsd</DependentUpon>
     </None>
@@ -201,6 +236,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Recursos\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

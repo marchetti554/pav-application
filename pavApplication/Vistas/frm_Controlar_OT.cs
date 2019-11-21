@@ -22,6 +22,7 @@ namespace pavApplication.Vistas
         public frm_Controlar_OT()
         {
             InitializeComponent();
+            updatearNombreEnTxtBox();
             cantidad_boletas = 0;
         }
 
@@ -49,6 +50,7 @@ namespace pavApplication.Vistas
                 for (int i = 0; i < tabla.Rows.Count; i++)
                 {
                     dgv_detalles.Rows.Add(tabla.Rows[i]["id_detalle"],
+                                    tabla.Rows[i]["legajo_empleado"],
                                     tabla.Rows[i]["id_maquina"],
                                     tabla.Rows[i]["estado"],
                                     tabla.Rows[i]["fecha_hora_inicio"],
@@ -65,6 +67,8 @@ namespace pavApplication.Vistas
 
         private void frm_Controlar_OT_Load(object sender, EventArgs e)
         {
+            // TODO: esta línea de código carga datos en la tabla '_pav_dbDataSet.empleados' Puede moverla o quitarla según sea necesario.
+            this.empleadosTableAdapter.Fill(this._pav_dbDataSet.empleados);
 
         }
 
@@ -78,7 +82,6 @@ namespace pavApplication.Vistas
             {
                 panel1.Enabled = false;
                 btn_completar.Enabled = false;
-                btn_reabrir.Enabled = false;
                 string completarBoletaQuery = "Update detalle_orden SET estado = 'Completada', duracion_real_trabajo = " +
                     (DateTime.Now - Convert.ToDateTime(dgv_detalles.SelectedRows[0].Cells["fecha_hora_inicio"].Value.ToString())).Seconds + " " +
                     "WHERE (id_orden_trabajo = " + orden_trabajo_controlando + " AND id_detalle = " + Int32.Parse(dgv_detalles.SelectedRows[0].Cells["id_detalle"].Value.ToString()) + ");";
@@ -106,13 +109,13 @@ namespace pavApplication.Vistas
             {
                 panel1.Enabled = false;
                 btn_completar.Enabled = true;
-                btn_reabrir.Enabled = true;
 
 
                 DateTime time = DateTime.Now;             
                 string format = "yyyy-MM-dd HH:mm:ss";
 
-                String iniciarBoletaQuery = "update detalle_orden SET estado = 'En Curso', fecha_hora_inicio = '" + time.ToString(format)
+                String iniciarBoletaQuery = "update detalle_orden SET estado = 'En Curso', legajo_empleado = " + Int32.Parse(comboBox1.SelectedValue.ToString())
+                    + ", fecha_hora_inicio = '" + time.ToString(format)
                     + "' WHERE (id_orden_trabajo = " + orden_trabajo_controlando + " AND id_detalle = "
                     + Int32.Parse(dgv_detalles.SelectedRows[0].Cells["id_detalle"].Value.ToString()) + ");";
 
@@ -123,19 +126,6 @@ namespace pavApplication.Vistas
             {
                 MessageBox.Show("Esta Boleta no posee el estado requerido, no se puede Iniciar.", "¡Atención!", MessageBoxButtons.OK);
             }
-        }
-
-        private void dgv_detalles_SelectionChanged(object sender, EventArgs e)
-        {
-            try
-            {
-               // dgv_detalles.ClearSelection();
-               // dgv_detalles.Rows[1].Selected = true;
-            } catch
-            {
-
-            }
-
         }
 
         private void dgv_detalles_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -149,19 +139,16 @@ namespace pavApplication.Vistas
             {
                 panel1.Enabled = true;
                 btn_completar.Enabled = false;
-                btn_reabrir.Enabled = false;
             }
             if (dgv_detalles.SelectedRows[0].Cells["estado"].Value.ToString() == "En Curso")
             {
                 panel1.Enabled = false;
                 btn_completar.Enabled = true;
-                btn_reabrir.Enabled = true;
             }
             if (dgv_detalles.SelectedRows[0].Cells["estado"].Value.ToString() == "Completada")
             {
                 panel1.Enabled = false;
                 btn_completar.Enabled = false;
-                btn_reabrir.Enabled = false;
             }
         }
 
@@ -178,8 +165,25 @@ namespace pavApplication.Vistas
                 }
                 bdHelper.actualizarBD("UPDATE orden_trabajo SET id_estado = 2, tiempo_total_real = " + total_tiempo + " WHERE " +
                     "id_orden_trabajo = " + orden_trabajo_controlando + ";");
-                this.Close();
             }
+        }
+
+        private void lbl_numero_ot_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            updatearNombreEnTxtBox();
+        }
+
+        private void updatearNombreEnTxtBox()
+        {
+            int legajoEmpleado = Int32.Parse(comboBox1.SelectedValue.ToString());
+            string retrieveNombreApellidoEmpleado = "SELECT * FROM empleados WHERE legajo_empleado = " + legajoEmpleado;
+            DataTable legajoEmpleadoDataTable = bdHelper.consultarSQL(retrieveNombreApellidoEmpleado);
+            textBox1.Text = legajoEmpleadoDataTable.Rows[0]["nombre"].ToString() + " " + legajoEmpleadoDataTable.Rows[0]["apellido"];
         }
     }
 }
