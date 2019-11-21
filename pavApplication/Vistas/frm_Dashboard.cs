@@ -259,5 +259,11 @@ namespace pavApplication.Views
         {
 
         }
+
+        private void btn_maquinas_Click(object sender, EventArgs e)
+        {
+            Form frm_Maquinas = new frm_Maquinas();
+            frm_Maquinas.ShowDialog();
+        }
     }
 }

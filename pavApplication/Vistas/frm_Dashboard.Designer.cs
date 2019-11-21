@@ -30,14 +30,16 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.lbl_dashboard = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.id_orden_trabajo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.id_estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fecha_estimada_entrega = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dni_responsable_cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.precio_total = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lbl_dashboard = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.lbl_version = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
@@ -56,8 +58,7 @@
             this.lbl_user_logged = new System.Windows.Forms.Label();
             this.lbl_nmb_usuario = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.lbl_version = new System.Windows.Forms.Label();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.btn_maquinas = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -75,16 +76,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1240, 749);
             this.panel1.TabIndex = 1;
-            // 
-            // lbl_dashboard
-            // 
-            this.lbl_dashboard.AutoSize = true;
-            this.lbl_dashboard.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_dashboard.Location = new System.Drawing.Point(261, 12);
-            this.lbl_dashboard.Name = "lbl_dashboard";
-            this.lbl_dashboard.Size = new System.Drawing.Size(136, 29);
-            this.lbl_dashboard.TabIndex = 2;
-            this.lbl_dashboard.Text = "Dashboard";
             // 
             // dataGridView1
             // 
@@ -133,9 +124,20 @@
             this.precio_total.HeaderText = "Precio Total";
             this.precio_total.Name = "precio_total";
             // 
+            // lbl_dashboard
+            // 
+            this.lbl_dashboard.AutoSize = true;
+            this.lbl_dashboard.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_dashboard.Location = new System.Drawing.Point(261, 12);
+            this.lbl_dashboard.Name = "lbl_dashboard";
+            this.lbl_dashboard.Size = new System.Drawing.Size(136, 29);
+            this.lbl_dashboard.TabIndex = 2;
+            this.lbl_dashboard.Text = "Dashboard";
+            // 
             // panel2
             // 
             this.panel2.AutoSize = true;
+            this.panel2.Controls.Add(this.btn_maquinas);
             this.panel2.Controls.Add(this.linkLabel1);
             this.panel2.Controls.Add(this.lbl_version);
             this.panel2.Controls.Add(this.label1);
@@ -156,11 +158,31 @@
             this.panel2.TabIndex = 2;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(38, 719);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(152, 17);
+            this.linkLabel1.TabIndex = 22;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Metfarbi - OpenSource";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
+            // lbl_version
+            // 
+            this.lbl_version.AutoSize = true;
+            this.lbl_version.Location = new System.Drawing.Point(67, 747);
+            this.lbl_version.Name = "lbl_version";
+            this.lbl_version.Size = new System.Drawing.Size(86, 17);
+            this.lbl_version.TabIndex = 21;
+            this.lbl_version.Text = "versión 1.24";
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(79, 463);
+            this.label1.Location = new System.Drawing.Point(80, 556);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(57, 17);
             this.label1.TabIndex = 20;
@@ -169,7 +191,7 @@
             // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(18, 549);
+            this.button8.Location = new System.Drawing.Point(19, 642);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(179, 37);
             this.button8.TabIndex = 10;
@@ -179,7 +201,7 @@
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(18, 502);
+            this.button7.Location = new System.Drawing.Point(19, 595);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(179, 37);
             this.button7.TabIndex = 8;
@@ -189,7 +211,7 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(18, 396);
+            this.button6.Location = new System.Drawing.Point(19, 449);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(179, 37);
             this.button6.TabIndex = 7;
@@ -198,7 +220,7 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(18, 291);
+            this.button5.Location = new System.Drawing.Point(19, 344);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(179, 37);
             this.button5.TabIndex = 5;
@@ -208,7 +230,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(18, 341);
+            this.button4.Location = new System.Drawing.Point(19, 394);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(179, 37);
             this.button4.TabIndex = 6;
@@ -325,25 +347,15 @@
             this.label3.Text = "Permisos especiales - Solo para reportes.";
             this.label3.Visible = false;
             // 
-            // lbl_version
+            // btn_maquinas
             // 
-            this.lbl_version.AutoSize = true;
-            this.lbl_version.Location = new System.Drawing.Point(67, 747);
-            this.lbl_version.Name = "lbl_version";
-            this.lbl_version.Size = new System.Drawing.Size(86, 17);
-            this.lbl_version.TabIndex = 21;
-            this.lbl_version.Text = "versión 1.24";
-            // 
-            // linkLabel1
-            // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(38, 719);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(152, 17);
-            this.linkLabel1.TabIndex = 22;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Metfarbi - OpenSource";
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            this.btn_maquinas.Location = new System.Drawing.Point(18, 291);
+            this.btn_maquinas.Name = "btn_maquinas";
+            this.btn_maquinas.Size = new System.Drawing.Size(179, 37);
+            this.btn_maquinas.TabIndex = 23;
+            this.btn_maquinas.Text = "Máquinas";
+            this.btn_maquinas.UseVisualStyleBackColor = false;
+            this.btn_maquinas.Click += new System.EventHandler(this.btn_maquinas_Click);
             // 
             // frm_Dashboard
             // 
@@ -408,5 +420,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lbl_version;
         private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.Button btn_maquinas;
     }
 }

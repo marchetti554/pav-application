@@ -83,3 +83,4 @@ D:\Projects\pav-application\pavApplication\obj\Debug\RdlCompile.cache
 D:\Projects\pav-application\pavApplication\obj\Debug\RdlCompile.compiled
 D:\Projects\pav-application\pavApplication\obj\Debug\pavApplication.reporteFinalMaq.resources
 D:\Projects\pav-application\pavApplication\obj\Debug\pavApplication.Vistas.frm_SeleccionarReporte.resources
+D:\Projects\pav-application\pavApplication\obj\Debug\pavApplication.Vistas.frm_Maquinas.resources

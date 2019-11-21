@@ -124,6 +124,12 @@
     <Compile Include="Vistas\frm_Login.Designer.cs">
       <DependentUpon>frm_Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vistas\frm_Maquinas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\frm_Maquinas.Designer.cs">
+      <DependentUpon>frm_Maquinas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\frm_Nueva_OT.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -135,6 +141,11 @@
     </Compile>
     <Compile Include="Vistas\frm_SeleccionarReporte.Designer.cs">
       <DependentUpon>frm_SeleccionarReporte.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_pav_dbDataComboTipoMaq.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_pav_dbDataComboTipoMaq.xsd</DependentUpon>
     </Compile>
     <Compile Include="_pav_dbDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -177,6 +188,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\frm_Login.resx">
       <DependentUpon>frm_Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\frm_Maquinas.resx">
+      <DependentUpon>frm_Maquinas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\frm_Nueva_OT.resx">
       <DependentUpon>frm_Nueva_OT.cs</DependentUpon>
@@ -227,6 +241,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="_pav_dbDataComboTipoMaq.xsc">
+      <DependentUpon>_pav_dbDataComboTipoMaq.xsd</DependentUpon>
+    </None>
+    <None Include="_pav_dbDataComboTipoMaq.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>_pav_dbDataComboTipoMaq.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="_pav_dbDataComboTipoMaq.xss">
+      <DependentUpon>_pav_dbDataComboTipoMaq.xsd</DependentUpon>
+    </None>
     <None Include="_pav_dbDataSet.xsc">
       <DependentUpon>_pav_dbDataSet.xsd</DependentUpon>
     </None>
