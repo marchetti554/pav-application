@@ -30,20 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dgv_detalles = new System.Windows.Forms.DataGridView();
-            this.lbl_nro_ot = new System.Windows.Forms.Label();
-            this.lbl_numero_ot = new System.Windows.Forms.Label();
-            this.btn_completar = new System.Windows.Forms.Button();
-            this.btn_iniciar = new System.Windows.Forms.Button();
-            this.btn_salir = new System.Windows.Forms.Button();
-            this.btn_finalizar = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this._pav_dbDataSet = new pavApplication._pav_dbDataSet();
-            this.empleadosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.empleadosTableAdapter = new pavApplication._pav_dbDataSetTableAdapters.empleadosTableAdapter();
-            this.lbl_legajo = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.id_detalle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.legajo_empleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.id_maquina = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,10 +37,24 @@
             this.fecha_hora_inicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tiempo_estimado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tiempo_real = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lbl_nro_ot = new System.Windows.Forms.Label();
+            this.lbl_numero_ot = new System.Windows.Forms.Label();
+            this.btn_completar = new System.Windows.Forms.Button();
+            this.btn_iniciar = new System.Windows.Forms.Button();
+            this.btn_salir = new System.Windows.Forms.Button();
+            this.btn_finalizar = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lbl_legajo = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.empleadosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this._pav_dbDataSet = new pavApplication._pav_dbDataSet();
+            this.empleadosTableAdapter = new pavApplication._pav_dbDataSetTableAdapters.empleadosTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_detalles)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this._pav_dbDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.empleadosBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._pav_dbDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // dgv_detalles
@@ -86,6 +86,48 @@
             this.dgv_detalles.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_detalles_CellClick);
             this.dgv_detalles.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_detalles_CellContentClick);
             this.dgv_detalles.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_detalles_CellMouseClick);
+            // 
+            // id_detalle
+            // 
+            this.id_detalle.HeaderText = "Nro Boleta";
+            this.id_detalle.Name = "id_detalle";
+            this.id_detalle.ReadOnly = true;
+            // 
+            // legajo_empleado
+            // 
+            this.legajo_empleado.HeaderText = "Empleado Asignado";
+            this.legajo_empleado.Name = "legajo_empleado";
+            this.legajo_empleado.ReadOnly = true;
+            // 
+            // id_maquina
+            // 
+            this.id_maquina.HeaderText = "ID Maquina";
+            this.id_maquina.Name = "id_maquina";
+            this.id_maquina.ReadOnly = true;
+            // 
+            // estado
+            // 
+            this.estado.HeaderText = "Estado";
+            this.estado.Name = "estado";
+            this.estado.ReadOnly = true;
+            // 
+            // fecha_hora_inicio
+            // 
+            this.fecha_hora_inicio.HeaderText = "Inicio";
+            this.fecha_hora_inicio.Name = "fecha_hora_inicio";
+            this.fecha_hora_inicio.ReadOnly = true;
+            // 
+            // tiempo_estimado
+            // 
+            this.tiempo_estimado.HeaderText = "Tiempo Estimado";
+            this.tiempo_estimado.Name = "tiempo_estimado";
+            this.tiempo_estimado.ReadOnly = true;
+            // 
+            // tiempo_real
+            // 
+            this.tiempo_real.HeaderText = "Tiempo Real";
+            this.tiempo_real.Name = "tiempo_real";
+            this.tiempo_real.ReadOnly = true;
             // 
             // lbl_nro_ot
             // 
@@ -162,6 +204,33 @@
             this.panel1.Size = new System.Drawing.Size(296, 129);
             this.panel1.TabIndex = 9;
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(6, 83);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(198, 22);
+            this.textBox1.TabIndex = 4;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 63);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(62, 17);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Nombre:";
+            // 
+            // lbl_legajo
+            // 
+            this.lbl_legajo.AutoSize = true;
+            this.lbl_legajo.Location = new System.Drawing.Point(6, 9);
+            this.lbl_legajo.Name = "lbl_legajo";
+            this.lbl_legajo.Size = new System.Drawing.Size(121, 17);
+            this.lbl_legajo.TabIndex = 2;
+            this.lbl_legajo.Text = "Legajo empleado:";
+            // 
             // comboBox1
             // 
             this.comboBox1.DataSource = this.empleadosBindingSource;
@@ -175,87 +244,19 @@
             this.comboBox1.ValueMember = "legajo_empleado";
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
-            // _pav_dbDataSet
-            // 
-            this._pav_dbDataSet.DataSetName = "_pav_dbDataSet";
-            this._pav_dbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // empleadosBindingSource
             // 
             this.empleadosBindingSource.DataMember = "empleados";
             this.empleadosBindingSource.DataSource = this._pav_dbDataSet;
             // 
+            // _pav_dbDataSet
+            // 
+            this._pav_dbDataSet.DataSetName = "_pav_dbDataSet";
+            this._pav_dbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // empleadosTableAdapter
             // 
             this.empleadosTableAdapter.ClearBeforeFill = true;
-            // 
-            // lbl_legajo
-            // 
-            this.lbl_legajo.AutoSize = true;
-            this.lbl_legajo.Location = new System.Drawing.Point(6, 9);
-            this.lbl_legajo.Name = "lbl_legajo";
-            this.lbl_legajo.Size = new System.Drawing.Size(121, 17);
-            this.lbl_legajo.TabIndex = 2;
-            this.lbl_legajo.Text = "Legajo empleado:";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 63);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(62, 17);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Nombre:";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(6, 83);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(198, 22);
-            this.textBox1.TabIndex = 4;
-            // 
-            // id_detalle
-            // 
-            this.id_detalle.HeaderText = "Nro Boleta";
-            this.id_detalle.Name = "id_detalle";
-            this.id_detalle.ReadOnly = true;
-            // 
-            // legajo_empleado
-            // 
-            this.legajo_empleado.HeaderText = "Empleado Asignado";
-            this.legajo_empleado.Name = "legajo_empleado";
-            this.legajo_empleado.ReadOnly = true;
-            // 
-            // id_maquina
-            // 
-            this.id_maquina.HeaderText = "ID Maquina";
-            this.id_maquina.Name = "id_maquina";
-            this.id_maquina.ReadOnly = true;
-            // 
-            // estado
-            // 
-            this.estado.HeaderText = "Estado";
-            this.estado.Name = "estado";
-            this.estado.ReadOnly = true;
-            // 
-            // fecha_hora_inicio
-            // 
-            this.fecha_hora_inicio.HeaderText = "Inicio";
-            this.fecha_hora_inicio.Name = "fecha_hora_inicio";
-            this.fecha_hora_inicio.ReadOnly = true;
-            // 
-            // tiempo_estimado
-            // 
-            this.tiempo_estimado.HeaderText = "Tiempo Estimado";
-            this.tiempo_estimado.Name = "tiempo_estimado";
-            this.tiempo_estimado.ReadOnly = true;
-            // 
-            // tiempo_real
-            // 
-            this.tiempo_real.HeaderText = "Tiempo Real";
-            this.tiempo_real.Name = "tiempo_real";
-            this.tiempo_real.ReadOnly = true;
             // 
             // frm_Controlar_OT
             // 
@@ -275,8 +276,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgv_detalles)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this._pav_dbDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.empleadosBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._pav_dbDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -65,6 +65,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dataParaSegundoReporte.xsd</DependentUpon>
     </Compile>
+    <Compile Include="dataParaTipoMaquina.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dataParaTipoMaquina.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Datos\BDHelper.cs" />
     <Compile Include="Datos\Constants.cs" />
     <Compile Include="ordenesCompletadas.cs">
@@ -189,6 +194,17 @@
     </None>
     <None Include="dataParaSegundoReporte.xss">
       <DependentUpon>dataParaSegundoReporte.xsd</DependentUpon>
+    </None>
+    <None Include="dataParaTipoMaquina.xsc">
+      <DependentUpon>dataParaTipoMaquina.xsd</DependentUpon>
+    </None>
+    <None Include="dataParaTipoMaquina.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dataParaTipoMaquina.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dataParaTipoMaquina.xss">
+      <DependentUpon>dataParaTipoMaquina.xsd</DependentUpon>
     </None>
     <None Include="ordenesCompletadas.xsc">
       <DependentUpon>ordenesCompletadas.xsd</DependentUpon>

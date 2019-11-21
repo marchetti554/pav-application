@@ -53,42 +53,34 @@
             this._pav_dbDataSet = new pavApplication._pav_dbDataSet();
             this.ordentrabajoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.pavdbDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.ordenDeTrabajoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.nuevaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.controlarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.eliminarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.usuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cambiarUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cerrarSesiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.modificarPerfilToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lbl_user_logged = new System.Windows.Forms.Label();
             this.lbl_nmb_usuario = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.lbl_version = new System.Windows.Forms.Label();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._pav_dbDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ordentrabajoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pavdbDataSetBindingSource)).BeginInit();
-            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.AutoSize = true;
             this.panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.panel1.Controls.Add(this.lbl_dashboard);
             this.panel1.Controls.Add(this.dataGridView1);
             this.panel1.Location = new System.Drawing.Point(266, 44);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1064, 665);
+            this.panel1.Size = new System.Drawing.Size(1240, 749);
             this.panel1.TabIndex = 1;
             // 
             // lbl_dashboard
             // 
             this.lbl_dashboard.AutoSize = true;
             this.lbl_dashboard.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_dashboard.Location = new System.Drawing.Point(18, 18);
+            this.lbl_dashboard.Location = new System.Drawing.Point(261, 12);
             this.lbl_dashboard.Name = "lbl_dashboard";
             this.lbl_dashboard.Size = new System.Drawing.Size(136, 29);
             this.lbl_dashboard.TabIndex = 2;
@@ -106,12 +98,12 @@
             this.fecha_estimada_entrega,
             this.dni_responsable_cliente,
             this.precio_total});
-            this.dataGridView1.Location = new System.Drawing.Point(3, 65);
+            this.dataGridView1.Location = new System.Drawing.Point(9, 11);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1058, 597);
+            this.dataGridView1.Size = new System.Drawing.Size(1228, 735);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
@@ -144,6 +136,8 @@
             // panel2
             // 
             this.panel2.AutoSize = true;
+            this.panel2.Controls.Add(this.linkLabel1);
+            this.panel2.Controls.Add(this.lbl_version);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.button8);
             this.panel2.Controls.Add(this.button7);
@@ -156,10 +150,11 @@
             this.panel2.Controls.Add(this.btn_controlar);
             this.panel2.Controls.Add(this.lbl_ot);
             this.panel2.Controls.Add(this.btn_nueva_ot);
-            this.panel2.Location = new System.Drawing.Point(24, 44);
+            this.panel2.Location = new System.Drawing.Point(24, 15);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(222, 665);
+            this.panel2.Size = new System.Drawing.Size(222, 775);
             this.panel2.TabIndex = 2;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // label1
             // 
@@ -298,81 +293,10 @@
             this.pavdbDataSetBindingSource.DataSource = this._pav_dbDataSet;
             this.pavdbDataSetBindingSource.Position = 0;
             // 
-            // ordenDeTrabajoToolStripMenuItem1
-            // 
-            this.ordenDeTrabajoToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.nuevaToolStripMenuItem,
-            this.controlarToolStripMenuItem,
-            this.eliminarToolStripMenuItem});
-            this.ordenDeTrabajoToolStripMenuItem1.Name = "ordenDeTrabajoToolStripMenuItem1";
-            this.ordenDeTrabajoToolStripMenuItem1.Size = new System.Drawing.Size(137, 24);
-            this.ordenDeTrabajoToolStripMenuItem1.Text = "Orden de Trabajo";
-            this.ordenDeTrabajoToolStripMenuItem1.Click += new System.EventHandler(this.ordenDeTrabajoToolStripMenuItem1_Click);
-            // 
-            // nuevaToolStripMenuItem
-            // 
-            this.nuevaToolStripMenuItem.Name = "nuevaToolStripMenuItem";
-            this.nuevaToolStripMenuItem.Size = new System.Drawing.Size(146, 26);
-            this.nuevaToolStripMenuItem.Text = "Nueva";
-            // 
-            // controlarToolStripMenuItem
-            // 
-            this.controlarToolStripMenuItem.Name = "controlarToolStripMenuItem";
-            this.controlarToolStripMenuItem.Size = new System.Drawing.Size(146, 26);
-            this.controlarToolStripMenuItem.Text = "Controlar";
-            // 
-            // eliminarToolStripMenuItem
-            // 
-            this.eliminarToolStripMenuItem.Name = "eliminarToolStripMenuItem";
-            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(146, 26);
-            this.eliminarToolStripMenuItem.Text = "Eliminar";
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ordenDeTrabajoToolStripMenuItem1,
-            this.usuarioToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1342, 28);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
-            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
-            // 
-            // usuarioToolStripMenuItem
-            // 
-            this.usuarioToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cambiarUsuarioToolStripMenuItem,
-            this.cerrarSesiónToolStripMenuItem,
-            this.modificarPerfilToolStripMenuItem});
-            this.usuarioToolStripMenuItem.Name = "usuarioToolStripMenuItem";
-            this.usuarioToolStripMenuItem.Size = new System.Drawing.Size(71, 24);
-            this.usuarioToolStripMenuItem.Text = "Usuario";
-            // 
-            // cambiarUsuarioToolStripMenuItem
-            // 
-            this.cambiarUsuarioToolStripMenuItem.Name = "cambiarUsuarioToolStripMenuItem";
-            this.cambiarUsuarioToolStripMenuItem.Size = new System.Drawing.Size(192, 26);
-            this.cambiarUsuarioToolStripMenuItem.Text = "Cambiar usuario";
-            // 
-            // cerrarSesiónToolStripMenuItem
-            // 
-            this.cerrarSesiónToolStripMenuItem.Name = "cerrarSesiónToolStripMenuItem";
-            this.cerrarSesiónToolStripMenuItem.Size = new System.Drawing.Size(192, 26);
-            this.cerrarSesiónToolStripMenuItem.Text = "Cerrar sesión";
-            this.cerrarSesiónToolStripMenuItem.Click += new System.EventHandler(this.cerrarSesiónToolStripMenuItem_Click);
-            // 
-            // modificarPerfilToolStripMenuItem
-            // 
-            this.modificarPerfilToolStripMenuItem.Name = "modificarPerfilToolStripMenuItem";
-            this.modificarPerfilToolStripMenuItem.Size = new System.Drawing.Size(192, 26);
-            this.modificarPerfilToolStripMenuItem.Text = "Modificar perfil";
-            // 
             // lbl_user_logged
             // 
             this.lbl_user_logged.AutoSize = true;
-            this.lbl_user_logged.Location = new System.Drawing.Point(272, 13);
+            this.lbl_user_logged.Location = new System.Drawing.Point(481, 16);
             this.lbl_user_logged.Name = "lbl_user_logged";
             this.lbl_user_logged.Size = new System.Drawing.Size(142, 17);
             this.lbl_user_logged.TabIndex = 3;
@@ -382,7 +306,7 @@
             // 
             this.lbl_nmb_usuario.AutoSize = true;
             this.lbl_nmb_usuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_nmb_usuario.Location = new System.Drawing.Point(420, 13);
+            this.lbl_nmb_usuario.Location = new System.Drawing.Point(620, 17);
             this.lbl_nmb_usuario.Name = "lbl_nmb_usuario";
             this.lbl_nmb_usuario.Size = new System.Drawing.Size(118, 17);
             this.lbl_nmb_usuario.TabIndex = 4;
@@ -394,26 +318,45 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Red;
-            this.label3.Location = new System.Drawing.Point(544, 13);
+            this.label3.Location = new System.Drawing.Point(786, 16);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(327, 18);
             this.label3.TabIndex = 5;
             this.label3.Text = "Permisos especiales - Solo para reportes.";
             this.label3.Visible = false;
             // 
+            // lbl_version
+            // 
+            this.lbl_version.AutoSize = true;
+            this.lbl_version.Location = new System.Drawing.Point(67, 747);
+            this.lbl_version.Name = "lbl_version";
+            this.lbl_version.Size = new System.Drawing.Size(86, 17);
+            this.lbl_version.TabIndex = 21;
+            this.lbl_version.Text = "versión 1.24";
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(38, 719);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(152, 17);
+            this.linkLabel1.TabIndex = 22;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Metfarbi - OpenSource";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
             // frm_Dashboard
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(1342, 721);
+            this.ClientSize = new System.Drawing.Size(1582, 853);
+            this.Controls.Add(this.lbl_dashboard);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lbl_nmb_usuario);
             this.Controls.Add(this.lbl_user_logged);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frm_Dashboard";
@@ -424,15 +367,12 @@
             this.Load += new System.EventHandler(this.frm_Dashboard_Load);
             this.Enter += new System.EventHandler(this.frm_Dashboard_Enter);
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this._pav_dbDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ordentrabajoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pavdbDataSetBindingSource)).EndInit();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -452,15 +392,6 @@
         private System.Windows.Forms.Button btn_controlar;
         private System.Windows.Forms.Button btn_clientes_responsables;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ToolStripMenuItem ordenDeTrabajoToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem nuevaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem controlarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem eliminarToolStripMenuItem;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem usuarioToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cambiarUsuarioToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cerrarSesiónToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem modificarPerfilToolStripMenuItem;
         private System.Windows.Forms.Label lbl_user_logged;
         private System.Windows.Forms.Label lbl_nmb_usuario;
         private System.Windows.Forms.Button button8;
@@ -475,5 +406,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dni_responsable_cliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn precio_total;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lbl_version;
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }

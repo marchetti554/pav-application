@@ -83,6 +83,11 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.lbl_responsable = new System.Windows.Forms.Label();
             this.cmb_responsable = new System.Windows.Forms.ComboBox();
+            this.pnl_fecha = new System.Windows.Forms.Panel();
+            this.lbl_fecha = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txt_fecha_creacion = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_detalles)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.empleadosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._pav_dbDataSet1)).BeginInit();
@@ -100,13 +105,14 @@
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.pnl_fecha.SuspendLayout();
             this.SuspendLayout();
             // 
             // btn_salir
             // 
-            this.btn_salir.Location = new System.Drawing.Point(1082, 253);
+            this.btn_salir.Location = new System.Drawing.Point(1080, 298);
             this.btn_salir.Name = "btn_salir";
-            this.btn_salir.Size = new System.Drawing.Size(294, 40);
+            this.btn_salir.Size = new System.Drawing.Size(294, 66);
             this.btn_salir.TabIndex = 18;
             this.btn_salir.Text = "Salir";
             this.btn_salir.UseVisualStyleBackColor = true;
@@ -144,7 +150,7 @@
             this.duracion_trabajo,
             this.id_maquina});
             this.dgv_detalles.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnF2;
-            this.dgv_detalles.Location = new System.Drawing.Point(12, 303);
+            this.dgv_detalles.Location = new System.Drawing.Point(10, 382);
             this.dgv_detalles.MultiSelect = false;
             this.dgv_detalles.Name = "dgv_detalles";
             this.dgv_detalles.ReadOnly = true;
@@ -317,7 +323,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(350, 9);
+            this.label2.Location = new System.Drawing.Point(6, 227);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(164, 17);
             this.label2.TabIndex = 21;
@@ -326,7 +332,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(350, 56);
+            this.label3.Location = new System.Drawing.Point(6, 274);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(140, 17);
             this.label3.TabIndex = 22;
@@ -339,7 +345,7 @@
             0,
             0,
             0});
-            this.numericUpDown4.Location = new System.Drawing.Point(354, 29);
+            this.numericUpDown4.Location = new System.Drawing.Point(10, 247);
             this.numericUpDown4.Maximum = new decimal(new int[] {
             9999,
             0,
@@ -357,7 +363,7 @@
             0,
             0,
             0});
-            this.numericUpDown5.Location = new System.Drawing.Point(353, 76);
+            this.numericUpDown5.Location = new System.Drawing.Point(9, 294);
             this.numericUpDown5.Maximum = new decimal(new int[] {
             9999,
             0,
@@ -392,7 +398,7 @@
             // 
             this.btn_crear_ot.Location = new System.Drawing.Point(1082, 117);
             this.btn_crear_ot.Name = "btn_crear_ot";
-            this.btn_crear_ot.Size = new System.Drawing.Size(295, 76);
+            this.btn_crear_ot.Size = new System.Drawing.Size(295, 88);
             this.btn_crear_ot.TabIndex = 16;
             this.btn_crear_ot.Text = "Crear Orden de Trabajo";
             this.btn_crear_ot.UseVisualStyleBackColor = true;
@@ -401,7 +407,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(122, 272);
+            this.label7.Location = new System.Drawing.Point(118, 358);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(376, 17);
             this.label7.TabIndex = 33;
@@ -410,9 +416,9 @@
             // 
             // btn_nueva
             // 
-            this.btn_nueva.Location = new System.Drawing.Point(1081, 199);
+            this.btn_nueva.Location = new System.Drawing.Point(1079, 213);
             this.btn_nueva.Name = "btn_nueva";
-            this.btn_nueva.Size = new System.Drawing.Size(295, 48);
+            this.btn_nueva.Size = new System.Drawing.Size(295, 79);
             this.btn_nueva.TabIndex = 17;
             this.btn_nueva.Text = "Nueva Orden de Trabajo";
             this.btn_nueva.UseVisualStyleBackColor = true;
@@ -490,7 +496,7 @@
             this.txt_observaciones.MaxLength = 200;
             this.txt_observaciones.Multiline = true;
             this.txt_observaciones.Name = "txt_observaciones";
-            this.txt_observaciones.Size = new System.Drawing.Size(438, 117);
+            this.txt_observaciones.Size = new System.Drawing.Size(438, 183);
             this.txt_observaciones.TabIndex = 11;
             // 
             // textBox2
@@ -499,7 +505,7 @@
             this.textBox2.MaxLength = 150;
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(323, 41);
+            this.textBox2.Size = new System.Drawing.Size(323, 39);
             this.textBox2.TabIndex = 5;
             // 
             // label8
@@ -528,7 +534,7 @@
             this.panel1.Controls.Add(this.textBox1);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.numericUpDown1);
-            this.panel1.Location = new System.Drawing.Point(353, 113);
+            this.panel1.Location = new System.Drawing.Point(375, 39);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(230, 111);
             this.panel1.TabIndex = 42;
@@ -547,7 +553,7 @@
             this.panel2.Controls.Add(this.numericUpDown3);
             this.panel2.Location = new System.Drawing.Point(617, 39);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(457, 254);
+            this.panel2.Size = new System.Drawing.Size(457, 325);
             this.panel2.TabIndex = 43;
             // 
             // panel3
@@ -556,7 +562,6 @@
             this.panel3.Controls.Add(this.cmb_responsable);
             this.panel3.Controls.Add(this.cmb_cliente);
             this.panel3.Controls.Add(this.nmr_cant_piezas);
-            this.panel3.Controls.Add(this.panel1);
             this.panel3.Controls.Add(this.lbl_cliente);
             this.panel3.Controls.Add(this.lbl_cantidad_piezas);
             this.panel3.Controls.Add(this.label8);
@@ -567,7 +572,7 @@
             this.panel3.Controls.Add(this.numericUpDown5);
             this.panel3.Location = new System.Drawing.Point(16, 39);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(593, 234);
+            this.panel3.Size = new System.Drawing.Size(348, 325);
             this.panel3.TabIndex = 1;
             // 
             // lbl_responsable
@@ -592,15 +597,62 @@
             this.cmb_responsable.ValueMember = "id_cliente";
             this.cmb_responsable.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
+            // pnl_fecha
+            // 
+            this.pnl_fecha.Controls.Add(this.txt_fecha_creacion);
+            this.pnl_fecha.Controls.Add(this.label4);
+            this.pnl_fecha.Controls.Add(this.dateTimePicker1);
+            this.pnl_fecha.Controls.Add(this.lbl_fecha);
+            this.pnl_fecha.Location = new System.Drawing.Point(375, 172);
+            this.pnl_fecha.Name = "pnl_fecha";
+            this.pnl_fecha.Size = new System.Drawing.Size(230, 192);
+            this.pnl_fecha.TabIndex = 44;
+            // 
+            // lbl_fecha
+            // 
+            this.lbl_fecha.AutoSize = true;
+            this.lbl_fecha.Location = new System.Drawing.Point(8, 114);
+            this.lbl_fecha.Name = "lbl_fecha";
+            this.lbl_fecha.Size = new System.Drawing.Size(165, 17);
+            this.lbl_fecha.TabIndex = 0;
+            this.lbl_fecha.Text = "Fecha estimada entrega:";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Location = new System.Drawing.Point(10, 141);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(211, 22);
+            this.dateTimePicker1.TabIndex = 1;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(8, 16);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(109, 17);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "Fecha creación:";
+            // 
+            // txt_fecha_creacion
+            // 
+            this.txt_fecha_creacion.Location = new System.Drawing.Point(11, 50);
+            this.txt_fecha_creacion.Name = "txt_fecha_creacion";
+            this.txt_fecha_creacion.ReadOnly = true;
+            this.txt_fecha_creacion.Size = new System.Drawing.Size(212, 22);
+            this.txt_fecha_creacion.TabIndex = 38;
+            // 
             // frm_Nueva_OT
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1386, 503);
+            this.ClientSize = new System.Drawing.Size(1386, 583);
+            this.Controls.Add(this.pnl_fecha);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.btn_nueva);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.btn_crear_ot);
             this.Controls.Add(this.lbl_next_ot);
@@ -631,6 +683,8 @@
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            this.pnl_fecha.ResumeLayout(false);
+            this.pnl_fecha.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -692,5 +746,10 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label lbl_responsable;
         private System.Windows.Forms.ComboBox cmb_responsable;
+        private System.Windows.Forms.Panel pnl_fecha;
+        private System.Windows.Forms.Label lbl_fecha;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.TextBox txt_fecha_creacion;
+        private System.Windows.Forms.Label label4;
     }
 }

@@ -94,7 +94,7 @@ namespace pavApplication.Vistas
 
         private void frm_Nueva_OT_Load(object sender, EventArgs e)
         {
-
+            txt_fecha_creacion.Text = DateTime.Now.ToShortDateString();
         }
 
         private void cargarComboMaquina()
@@ -138,7 +138,6 @@ namespace pavApplication.Vistas
 
         private void btn_agregar_detalle_Click(object sender, EventArgs e)
         {
-            DateTime time = DateTime.Now.AddDays(10);
             string format = "yyyy-MM-dd HH:mm:ss";
             actualizarTablaBoleta();
                 String query = "";
@@ -161,8 +160,8 @@ namespace pavApplication.Vistas
                     + "'" + nmr_cant_piezas.Value + "',"
                     + "'" + numericUpDown4.Value + "',"
                     + "'" + numericUpDown5.Value + "',"
-                    + "'" + time.ToString(format) + "'," 
-                    + "'" + Int32.Parse(cmb_responsable.SelectedValue.ToString()) + "',"       //TODO: FIXEAR ESTO - Ver por qué no funciona
+                    + "'" + dateTimePicker1.Value.ToString(format) + "'," 
+                    + "'" + Int32.Parse(cmb_responsable.SelectedValue.ToString()) + "'," 
                     + "'" + textBox2.Text + "')";
                     bdHelper.consultarSQL(query);
                     precioHoraTrabajo = numericUpDown4.Value;
@@ -185,6 +184,7 @@ namespace pavApplication.Vistas
                 actualizarTablaBoleta();
                 panel3.Enabled = false;
                 panel1.Enabled = true;
+                pnl_fecha.Enabled = false;
                 actualizarPrecioTotal();
                 textBox1.Text = actualizarPrecioTotal().ToString();
                 btn_crear_ot.Enabled = true;
@@ -260,6 +260,7 @@ namespace pavApplication.Vistas
                 "todos sus datos.", "¡Atención!", MessageBoxButtons.YesNoCancel) == DialogResult.Yes)
             {
                 panel3.Enabled = true;
+                pnl_fecha.Enabled = true;
                 limpiarCamposBoleta();
                 bdHelper.finalizarTransaction();
                 dgv_detalles.Rows.Clear();

@@ -50,7 +50,8 @@ namespace pavApplication.Views
         private void actualizarGrillaOT()
         {
             dataGridView1.Rows.Clear();
-            DataTable tabla = bdHelper.consultarSQL("SELECT * FROM Estado JOIN orden_trabajo ON(orden_trabajo.id_estado = estado.id_estado)");
+            DataTable tabla = bdHelper.consultarSQL("SELECT * FROM Estado JOIN orden_trabajo ON(orden_trabajo.id_estado = estado.id_estado)" +
+                " WHERE orden_trabajo.esta_eliminada = 0");
             if (tabla.Rows.Count > 0)
             {
                 for (int i = 0; i < tabla.Rows.Count; i++)
@@ -92,36 +93,17 @@ namespace pavApplication.Views
 
         private void btn_eliminar_Click(object sender, EventArgs e)
         {
+            int ot_seleccionada = Int32.Parse(dataGridView1.SelectedRows[0].Cells["id_orden_trabajo"].Value.ToString());
             if (dataGridView1.SelectedRows.Count != 0)
             {
                 if (MessageBox.Show("Está por eliminar una Orden de Trabajo ¿está seguro de querer continuar?", "¡Atención!", MessageBoxButtons.YesNoCancel) == DialogResult.Yes)
                 {
                     String query = "update orden_trabajo SET esta_eliminada = 1 WHERE id_orden_trabajo = "
-                        + Int32.Parse(dataGridView1.SelectedRows[0].Cells["id_orden_trabajo"].Value.ToString()) + ";";
+                        + ot_seleccionada + ";";
                     bdHelper.actualizarBD(query);
                     actualizarGrillaOT();
-                    Form controlarOT = new frm_Controlar_OT(id_orden_por_controlar);
-                    controlarOT.ShowDialog();
                 }
             }
-            else
-            {
-                if (dataGridView1.SelectedRows[0].Cells["id_estado"].Value.ToString() == "En Curso" ||
-                    dataGridView1.SelectedRows[0].Cells["id_estado"].Value.ToString() == "Confirmada" ||
-                    dataGridView1.SelectedRows[0].Cells["id_estado"].Value.ToString() == "Cotizada")
-                {
-                    Form controlarOT = new frm_Controlar_OT(id_orden_por_controlar);
-                    controlarOT.ShowDialog();
-                }
-                else
-                {
-                    if (dataGridView1.SelectedRows[0].Cells["id_estado"].Value.ToString() == "Completada")
-                    {
-                        MessageBox.Show("Esta OT ya está Completada, no se puede controlar.", "¡Atención!", MessageBoxButtons.OK);
-                    }
-                }
-            }
-            actualizarGrillaOT();
         }
 
         private void ordenDeTrabajoToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -165,14 +147,13 @@ namespace pavApplication.Views
         {
             if(dataGridView1.SelectedRows[0].Cells["id_estado"].Value.ToString() == "Generada")
             {
+                int orden_trabajo_seleccionada = Int32.Parse(dataGridView1.SelectedRows[0].Cells["id_orden_trabajo"].Value.ToString());
                 if (MessageBox.Show("Esta Orden de Trabajo está Generada, para controlarla deberá Confirmarla.", "¡Atención!", MessageBoxButtons.YesNoCancel) == DialogResult.Yes)
                 {
                     String query = "update orden_trabajo SET id_estado = 5 WHERE id_orden_trabajo = "
-                        + Int32.Parse(dataGridView1.SelectedRows[0].Cells["id_orden_trabajo"].Value.ToString()) + ";";
+                        + orden_trabajo_seleccionada + ";";
                     bdHelper.actualizarBD(query);
                     actualizarGrillaOT();
-                    Form controlarOT = new frm_Controlar_OT(id_orden_por_controlar);
-                    controlarOT.ShowDialog();
                 }
             } else
             {
@@ -234,16 +215,11 @@ namespace pavApplication.Views
         {
             id_orden_por_controlar = Int32.Parse(dataGridView1.SelectedRows[0].Cells["id_orden_trabajo"].Value.ToString());     
             btn_controlar.Enabled = true;
+            btn_eliminar.Enabled = true;
         }
 
         private void frm_Dashboard_Enter(object sender, EventArgs e)
         {
-            actualizarGrillaOT();
-        }
-
-        private void a(object sender, EventArgs e)
-        {
-            
             actualizarGrillaOT();
         }
 
@@ -272,6 +248,16 @@ namespace pavApplication.Views
         private void login_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.Close();
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/marchetti554/pav-application");
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

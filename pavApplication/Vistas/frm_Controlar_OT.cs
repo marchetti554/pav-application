@@ -69,7 +69,7 @@ namespace pavApplication.Vistas
         {
             // TODO: esta línea de código carga datos en la tabla '_pav_dbDataSet.empleados' Puede moverla o quitarla según sea necesario.
             this.empleadosTableAdapter.Fill(this._pav_dbDataSet.empleados);
-
+            textBox1.Text = "Seleccione un legajo.";
         }
 
         /**
@@ -184,6 +184,11 @@ namespace pavApplication.Vistas
             string retrieveNombreApellidoEmpleado = "SELECT * FROM empleados WHERE legajo_empleado = " + legajoEmpleado;
             DataTable legajoEmpleadoDataTable = bdHelper.consultarSQL(retrieveNombreApellidoEmpleado);
             textBox1.Text = legajoEmpleadoDataTable.Rows[0]["nombre"].ToString() + " " + legajoEmpleadoDataTable.Rows[0]["apellido"];
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

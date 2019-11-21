@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xs:schema id="dataParaSegundoReporte" targetNamespace="http://tempuri.org/dataParaSegundoReporte.xsd" xmlns:mstns="http://tempuri.org/dataParaSegundoReporte.xsd" xmlns="http://tempuri.org/dataParaSegundoReporte.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+<xs:schema id="dataParaTipoMaquina" targetNamespace="http://tempuri.org/dataParaTipoMaquina.xsd" xmlns:mstns="http://tempuri.org/dataParaTipoMaquina.xsd" xmlns="http://tempuri.org/dataParaTipoMaquina.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
@@ -7,28 +7,6 @@
           <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="pav_db" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="pav_db (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.pavApplication.Properties.Settings.GlobalReference.Default.pav_db" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable1TableAdapter" GeneratorDataComponentClassName="DataTable1TableAdapter" Name="DataTable1" UserDataComponentName="DataTable1TableAdapter">
-            <MainSource>
-              <DbSource ConnectionRef="pav_db (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
-                <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT detalle_orden.id_maquina, SUM(detalle_orden.duracion_real_trabajo) AS total, maquinas.nombre_maquina
-FROM     detalle_orden FULL OUTER JOIN
-                  maquinas ON detalle_orden.id_maquina = maquinas.id_maquina
-GROUP BY detalle_orden.id_maquina, maquinas.nombre_maquina
-ORDER BY detalle_orden.id_maquina</CommandText>
-                    <Parameters />
-                  </DbCommand>
-                </SelectCommand>
-              </DbSource>
-            </MainSource>
-            <Mappings>
-              <Mapping SourceColumn="id_maquina" DataSetColumn="id_maquina" />
-              <Mapping SourceColumn="total" DataSetColumn="total" />
-              <Mapping SourceColumn="nombre_maquina" DataSetColumn="nombre_maquina" />
-            </Mappings>
-            <Sources />
-          </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tipos_maquinaTableAdapter" GeneratorDataComponentClassName="tipos_maquinaTableAdapter" Name="tipos_maquina" UserDataComponentName="tipos_maquinaTableAdapter">
             <MainSource>
               <DbSource ConnectionRef="pav_db (Settings)" DbObjectName="[pav-db].dbo.tipos_maquina" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
@@ -38,7 +16,7 @@ ORDER BY detalle_orden.id_maquina</CommandText>
 FROM     detalle_orden INNER JOIN
                   maquinas ON detalle_orden.id_maquina = maquinas.id_maquina INNER JOIN
                   tipos_maquina ON maquinas.id_tipo_maquina = tipos_maquina.id_tipo_maquina
-				  GROUP BY tipos_maquina.nombre</CommandText>
+GROUP BY tipos_maquina.nombre</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -55,24 +33,9 @@ FROM     detalle_orden INNER JOIN
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
-  <xs:element name="dataParaSegundoReporte" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dataParaSegundoReporte" msprop:Generator_UserDSName="dataParaSegundoReporte">
+  <xs:element name="dataParaTipoMaquina" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dataParaTipoMaquina" msprop:Generator_UserDSName="dataParaTipoMaquina">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowClassName="DataTable1Row">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="id_maquina" msprop:Generator_ColumnVarNameInTable="columnid_maquina" msprop:Generator_ColumnPropNameInRow="id_maquina" msprop:Generator_ColumnPropNameInTable="id_maquinaColumn" msprop:Generator_UserColumnName="id_maquina" type="xs:long" minOccurs="0" />
-              <xs:element name="total" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columntotal" msprop:Generator_ColumnPropNameInRow="total" msprop:Generator_ColumnPropNameInTable="totalColumn" msprop:Generator_UserColumnName="total" type="xs:double" minOccurs="0" />
-              <xs:element name="nombre_maquina" msprop:Generator_ColumnVarNameInTable="columnnombre_maquina" msprop:Generator_ColumnPropNameInRow="nombre_maquina" msprop:Generator_ColumnPropNameInTable="nombre_maquinaColumn" msprop:Generator_UserColumnName="nombre_maquina" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
         <xs:element name="tipos_maquina" msprop:Generator_TableClassName="tipos_maquinaDataTable" msprop:Generator_TableVarName="tabletipos_maquina" msprop:Generator_TablePropName="tipos_maquina" msprop:Generator_RowDeletingName="tipos_maquinaRowDeleting" msprop:Generator_RowChangingName="tipos_maquinaRowChanging" msprop:Generator_RowEvHandlerName="tipos_maquinaRowChangeEventHandler" msprop:Generator_RowDeletedName="tipos_maquinaRowDeleted" msprop:Generator_UserTableName="tipos_maquina" msprop:Generator_RowChangedName="tipos_maquinaRowChanged" msprop:Generator_RowEvArgName="tipos_maquinaRowChangeEvent" msprop:Generator_RowClassName="tipos_maquinaRow">
           <xs:complexType>
             <xs:sequence>
